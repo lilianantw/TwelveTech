@@ -1,7 +1,7 @@
 /* Базовые стили (шрифты, цвета и т.д.) */
-
-/* ==== Типографика по макету ==== */
-
+html {
+  scroll-behavior: smooth;
+}
 /* Основний текст */
 body {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -12,4 +12,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
