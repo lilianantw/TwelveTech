@@ -1,1 +1,8 @@
 /* about.css: Стили для блока About. Заполняется ответственным разработчиком. */
+.divider {
+    background: rgba(255, 255, 255, 0.20);
+    width: 100%;
+    max-width: 280px;
+    height: 1px;
+    margin: 20px auto;
+  }
