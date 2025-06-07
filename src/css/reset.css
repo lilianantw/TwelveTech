@@ -3,11 +3,6 @@ p:last-child {
   margin-bottom: 0; /* Сбрасываем нижний отступ для последнего параграфа, если требуется */
 }
 
-a {
-  text-decoration: none;
-  color: currentColor;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -20,10 +15,6 @@ h5,
 h6,
 p {
   margin: 0;
-}
-
-p:last-child {
-  margin-bottom: 0;
 }
 
 ul {

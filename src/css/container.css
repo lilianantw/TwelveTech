@@ -2,10 +2,12 @@
 .container {
   margin: 0 auto;
   padding: 0 16px;
+  min-width: 320px;
+  max-width: 374px;
 }
 
 /* Styles for mobile devices */
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 375px) {
   .container {
     max-width: 767px;
     padding: 0 16px;
