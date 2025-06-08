@@ -1,1 +1,301 @@
-/* hero.css: Стили для блока Hero. Заполняется ответственным разработчиком. */
+/* .artists-container {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  margin-top: 64px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+.loadMoreBtn {
+  margin: 0 auto;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background-color: #764191;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+} */
+/* 
+.artist-card {
+  width: 288px;
+  height: 452px;
+  min-width: 280px;
+} */
+
+/* .artist-photo {
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  border-radius: 16px;
+  width: 100%;
+  height: 177px;
+}
+
+.artist-info {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* показуємо 2 рядки */
+/* -webkit-box-orient: vertical; */
+/* line-clamp: 2;
+  box-orient: vertical;
+} */
+
+/* Styles for Tablet devices */
+/* @media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+
+  .artist-photo {
+    height: 432px;
+  }
+} */
+
+/* Styles for Desktop devices */
+/* @media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
+
+  h2 {
+    width: 523px;
+    font-size: 60px;
+    margin-bottom: 80px;
+  }
+
+  .cards-grid {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .artist-card {
+    width: 640px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .artist-photo {
+    width: 100%;
+    height: 393px;
+  }
+} */
+
+/* версія співрозробниці */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #060307;
+  color: #fff;
+}
+
+.container {
+  padding: 0 16px;
+  min-width: 320px;
+  max-width: 374px;
+  margin: 0 auto;
+}
+
+.artists-section {
+  padding: 64px 16px;
+}
+
+h1 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+.artist-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.artist-card {
+  background-color: #060307;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.artist-img {
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.artist-content {
+  font-family: sans-serif;
+}
+
+.artist-genres {
+  display: flex;
+}
+
+.artist-genres > * {
+  background-color: transparent;
+}
+
+.artist-name {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.artist-about {
+  overflow: hidden;
+}
+
+.learn-more-btn {
+  background: none;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.learn-more-btn::after {
+  content: '▶';
+  font-size: 0.9rem;
+}
+
+.artist-genres {
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.artist-name {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.artist-about {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .artist-list {
+    gap: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section-title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+}
+
+.learn-more-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.load-more-btn {
+  display: block;
+  margin: 40px auto 0;
+  background-color: #222;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.loader {
+  display: block;
+  margin: 20px auto;
+  width: 32px;
+  height: 32px;
+  border: 4px solid #ccc;
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
