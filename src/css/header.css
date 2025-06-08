@@ -1,19 +1,19 @@
 
 .section-header {
+    height: 64px;
     position: relative;
     top: 0;
     left: 0;
-    height: 64px;
 }
 
 .header-container {
+    display: flex;
     position: absolute;
     width: 100%;
     height: 64px;
     top: 0;
     left: 50%;
     transform: translate(-50%) scale(1);
-    display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: transparent;
@@ -22,11 +22,10 @@
 .header-nav {
     width: 100%;
     display: flex;
+    padding-left: 20px;
     justify-content: space-between;
     align-items: center;
-    padding-top: 6.5px;
-    padding-left: 20px;
-    padding-bottom: 6.5px;
+    padding: 6.5px 4px 6.5px 10.5px;
     text-align: center;
 }
 
@@ -37,30 +36,28 @@
 
 .logo-icon {
     margin: 10.63px 6.18px 10.17px 6.18px;
-    width: 106px;
-    height: 30px;
+    width: 119px;
+    height: 52px;
    fill: #764191;
-}
-
-.burger-btn {
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    margin-top: 8px;
-    margin-right: 24px;
-    margin-bottom: 8px;
 }
 
 .burger-icon {
     fill: #ffffff;
 }
+.burger-btn {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 320px) {
     .header-container {
-        width: 375px;
-    }
+        max-width: 320px;
+        height: 64px;
+        }
 }
 
 @media screen and (min-width: 768px) {
@@ -70,7 +67,10 @@
     }
 
     .header-nav {
-        padding-left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
    .logo-icon {
     fill: #ffffff;
@@ -79,13 +79,6 @@
 
     .burger-btn {
         display: none;
-    }
-
-    .header-nav {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
     .header-nav-list {
@@ -104,11 +97,11 @@
 
     .header-nav-link:hover,
     .header-nav-link:focus {
-        /* color: #764191; */
+        color: #764191;
     }
 
     .header-nav-link:active {
-        color: #ffffff;
+        color: #fff;
     }
 }
 
