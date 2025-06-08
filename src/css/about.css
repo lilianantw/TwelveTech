@@ -1,1 +1,68 @@
-/* about.css: Стили для блока About. Заполняется ответственным разработчиком. */
+@media only screen and (min-width: 375px) {
+  .about-us-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-text-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-img-container {
+    border-radius: 16px;
+    width: 280px;
+    height: 168px;
+    margin-top: 48px;
+  }
+  .about-title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+  }
+  .logo-icon {
+    fill: #fff;
+    margin-bottom: 20px;
+    width: 64px;
+    height: 64px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .about-img-container {
+    border-radius: 16px;
+    width: 704px;
+    height: 413px;
+    margin-bottom: 48px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .about-us-container {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+
+    background: #060307;
+    width: 1312px;
+    height: 664px;
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+  .about-img-container {
+    border-radius: 16px;
+    width: 640px;
+    height: 664px;
+    margin-bottom: 48px;
+    align-items: center;
+    justify-content: center;
+  }
+}
