@@ -13,10 +13,12 @@
       rel="stylesheet"
       href="https://unpkg.com/modern-normalize@2.0.0/modern-normalize.css"
     />
-    <script type="module" crossorigin src="/TwelveTech/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/TwelveTech/assets/vendor-BvLu_gPC.js">
-    <link rel="stylesheet" crossorigin href="/TwelveTech/assets/index-4wzHtM1F.css">
-  </head>
+    
+  <script type="module" crossorigin src="/TwelveTech/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/TwelveTech/assets/vendor-mzu_nFxL.js">
+  <link rel="stylesheet" crossorigin href="/TwelveTech/assets/vendor-BUrcyj0q.css">
+  <link rel="stylesheet" crossorigin href="/TwelveTech/assets/index-4wzHtM1F.css">
+
   <body>
     <header class="page-header">
   <div class="container header-container">
@@ -122,10 +124,22 @@
 </section>
 
       <section class="feedback-section">
-  <div class="container feedback-container">
-    <h3>Feedback</h3>
+  <div class="container">
+    <div class="swiper feedback-swiper">
+      <div class="swiper-wrapper" id="feedback-list"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  
+    <div class="custom-pagination">
+      <span id="pagination-first" class="pagination-btn"></span>
+      <span id="pagination-middle" class="pagination-btn"></span>
+      <span id="pagination-last" class="pagination-btn"></span>
+    </div>
+
   </div>
 </section>
+
 
     </main>
 
