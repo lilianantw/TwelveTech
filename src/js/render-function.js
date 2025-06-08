@@ -19,9 +19,17 @@ export const createArtistsCartTemplate = ({
 };
 
 export function renderArtists(artists, container) {
-  console.log(artists);
+  if (!artists || !artists.length) return;
+
   const markup = artists
     .map(artist => createArtistsCartTemplate(artist))
     .join('');
   container.insertAdjacentHTML('beforeend', markup);
+}
+
+export function showLoadMoreButton(button) {
+  button.classList.remove('hidden');
+}
+export function hideLoadMoreButton(button) {
+  button.classList.add('hidden');
 }
