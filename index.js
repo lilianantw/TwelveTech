@@ -1,12 +1,12 @@
-import{a}from"./assets/vendor-BvLu_gPC.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))n(t);new MutationObserver(t=>{for(const e of t)if(e.type==="childList")for(const i of e.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&n(i)}).observe(document,{childList:!0,subtree:!0});function o(t){const e={};return t.integrity&&(e.integrity=t.integrity),t.referrerPolicy&&(e.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?e.credentials="include":t.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function n(t){if(t.ep)return;t.ep=!0;const e=o(t);fetch(t.href,e)}})();const l=({_id:r,strArtist:s,strArtistThumb:o,genres:n,strBiographyEN:t})=>`
+import{a}from"./assets/vendor-BvLu_gPC.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const c of t.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&s(c)}).observe(document,{childList:!0,subtree:!0});function n(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function s(e){if(e.ep)return;e.ep=!0;const t=n(e);fetch(e.href,t)}})();const d=({_id:o,strArtist:r,strArtistThumb:n,genres:s,strBiographyEN:e})=>`
 <li class="artist-card">
-  <img src="${o}" alt="${s}" class="artist-photo" />
+  <img src="${n}" alt="${r}" class="artist-photo" />
   <ul class="artist-genres">
-    ${n.map(e=>`<li class="genre-tag">${e}</li>`).join("")}
+    ${s.map(t=>`<li class="genre-tag">${t}</li>`).join("")}
   </ul>
-  <h3 class="artist-name">${s}</h3>
-  <p class="artist-info">${t}</p>
- <button class="learn-more-btn" data-artist-id="${r}">Learn More</button>
+  <h3 class="artist-name">${r}</h3>
+  <p class="artist-info">${e}</p>
+ <button class="learn-more-btn" data-artist-id="${o}">Learn More</button>
 </li>
-`;function u(r,s){console.log(r);const o=r.map(n=>l(n)).join("");s.insertAdjacentHTML("beforeend",o)}a.defaults.baseURL="https://sound-wave.b.goit.study/api/";async function c(r,s){try{return(await a.get("/artists",{params:{limit:s,page:r}})).data.artists}catch(o){return console.error(o),[]}}c().then(r=>console.log(r));const d=8;let f=1;const p={cardsContainer:document.querySelector("#cards-container")};async function m(){const r=await c(f,d);u(r,p.cardsContainer)}m();
+`;function u(o,r){console.log(o);const n=o.map(s=>d(s)).join("");r.insertAdjacentHTML("beforeend",n)}a.defaults.baseURL="https://sound-wave.b.goit.study/api/";async function l(o,r){try{return(await a.get("/artists",{params:{limit:r,page:o}})).data.artists}catch(n){return console.error(n),[]}}l().then(o=>console.log(o));const f=8;let m=1;const p={cardsContainer:document.querySelector("#cards-container")};async function g(){const o=await l(m,f);u(o,p.cardsContainer)}g();document.addEventListener("DOMContentLoaded",function(){const o=document.querySelector(".burger-btn"),r=document.querySelector(".mobile-menu"),n=document.querySelector(".mobile-close"),s=document.querySelector(".mobile-backdrop"),e=document.querySelector(".header-logo-link");let t=!1;const c=()=>{s.classList.remove("open"),r.classList.remove("open"),document.body.style.overflow=""};o.addEventListener("click",()=>{if(s.classList.add("open"),r.classList.add("open"),document.body.style.overflow="hidden",!t&&e){const i=e.cloneNode(!0);i.classList.add("mobile-logo"),r.prepend(i),t=!0}}),n.addEventListener("click",c),s.addEventListener("click",i=>{i.target===s&&c()}),r.querySelectorAll("a").forEach(i=>{i.addEventListener("click",c)})});
 //# sourceMappingURL=index.js.map
