@@ -50,19 +50,24 @@
     display: flex;
     flex-direction: row;
     gap: 32px;
-
     background: #060307;
     width: 1312px;
     height: 664px;
     padding-top: 112px;
     padding-bottom: 112px;
   }
+  .about-text-container {
+    justify-content: center;
+  }
+
   .about-img-container {
     border-radius: 16px;
-    width: 640px;
-    height: 664px;
     margin-bottom: 48px;
-    align-items: center;
-    justify-content: center;
+  }
+  .logo-icon {
+    fill: #fff;
+    margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
   }
 }
