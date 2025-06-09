@@ -3,13 +3,18 @@ export function renderArtists(artists, container) {
 
   const markup = artists
     .map(artist => {
-      const name = artist.strArtist || 'No name';
+      const name = artist.strArtist 
+
       const genres = Array.isArray(artist.genres)
-        ? artist.genres.join(', ')
-        : 'No genres';
+        ? artist.genres
+            .map(genre => `<span class="genre-tag">${genre}</span>`)
+            .join(' ')
+        : '<span class="genre-tag">No genres</span>';
+      
       const about = artist.strBiographyEN
         ? artist.strBiographyEN.slice(0, 150) + '...'
         : 'No description.';
+      
       const image =
         artist.strArtistThumb ||
         'https://via.placeholder.com/300x300?text=No+Image';
