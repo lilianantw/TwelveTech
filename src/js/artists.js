@@ -14,8 +14,6 @@ async function initArtists() {
   const { artists } = await fetchArtists(currentPage);
   renderArtists(artists, cardsContainer);
 
-  console.log(artists[0]); // 👉 Встав сюди — побачиш приклад одного артиста
-
   loader.classList.add('hidden');
 
   if (artists.length === LIMIT) {
