@@ -1,3 +1,5 @@
+/* about.css: Стили для блока About. Заполняется ответственным разработчиком. */
+
 @media only screen and (min-width: 320px) {
   .about-us-container {
     display: flex;
@@ -38,6 +40,7 @@
     height: 64px;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .about-img-container {
     border-radius: 16px;
@@ -53,6 +56,7 @@
     height: 80px;
   }
 }
+
 @media only screen and (min-width: 1440px) {
   .about-us-container {
     display: flex;
@@ -79,6 +83,7 @@
     height: 80px;
   }
 }
+
 img {
   border-radius: 16px;
 }
