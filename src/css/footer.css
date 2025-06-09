@@ -15,9 +15,11 @@
   .footer-logo {
     width: 84px;
     height: 36px;
+    
   }
   .footer-logo-svg {
     fill: #764191;
+    transition: fill 0.3s ease, transform 0.3s ease;
   }
 
   .footer-nav-list {
@@ -30,6 +32,7 @@
   }
   .footer-nav-item {
     color: #fff;
+    transition: color 0.3s ease, transform 0.3s ease;
 
     /* Text/Small/Semi Bold */
     font-family: 'IBM Plex Sans';
@@ -62,6 +65,7 @@
 
   .social-icon {
     fill: #ffffff;
+    transition: fill 0.3s ease, transform 0.3s ease;
   }
 
   .footer-text {
@@ -120,4 +124,20 @@
   .footer-container {
     padding: 80px 64px;
   }
+}
+
+.footer-logo-svg:hover,
+.footer-logo-svg:focus {
+  fill: #fff;
+}
+
+
+.footer-nav-item:hover,
+.footer-nav-item:focus {
+color:#764191
+}
+
+.social-icon:hover,
+.social-icon:focus {
+  fill: #764191;
 }
