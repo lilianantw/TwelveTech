@@ -1,6 +1,5 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import Raty from 'raty-js'; 
 
 let swiperInstance;
 
@@ -17,6 +16,10 @@ async function fetchFeedbacks() {
 
 function renderSlides(feedbacks) {
     const wrapper = document.getElementById('feedback-list');
+    if (!wrapper) {
+        console.error('Элемент #feedback-list не найден');
+        return;
+    }
     wrapper.innerHTML = '';
 
     feedbacks.forEach(({ id, name, descr, rating }) => {
@@ -25,35 +28,41 @@ function renderSlides(feedbacks) {
         slide.dataset.id = id;
 
         slide.innerHTML = `
-        <div class="feedback-card">
-            <h4>${name}</h4>
-            <p>${descr}</p>
-            <div class="star-rating" data-rating="${Math.round(rating)}"></div>
-        </div>`;
+            <div class="feedback-card">
+                <div class="star-rating" data-rating="${Math.round(rating) || 0}"></div>
+                <p class="feedback-text">"${descr}"</p>
+                <p class="feedback-author">${name}</p>
+            </div>`;
 
         wrapper.appendChild(slide);
     });
+
+    initStarRatings();
 }
 
 function initStarRatings() {
     const starContainers = document.querySelectorAll('.star-rating');
     starContainers.forEach(container => {
-        const rating = parseInt(container.dataset.rating, 10);
-        Raty({
-            element: container,
-            readOnly: true,
-            score: rating,
-            starType: 'svg',
-            starSize: 20,
-            hints: [],
-        });
+        container.innerHTML = '';  // очищаємо контейнер перед ініціалізацією
+        const rating = parseInt(container.dataset.rating, 10) || 0;
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('i');
+            star.classList.add('star', i <= rating ? 'on' : 'off');
+            container.appendChild(star);
+        }
     });
 }
+
 
 function updatePagination(activeIndex, slidesCount) {
     const firstBtn = document.getElementById('pagination-first');
     const middleBtn = document.getElementById('pagination-middle');
     const lastBtn = document.getElementById('pagination-last');
+
+    if (!firstBtn || !middleBtn || !lastBtn) {
+        console.error('Один или несколько элементов пагинации не найдены');
+        return;
+    }
 
     firstBtn.classList.remove('active');
     middleBtn.classList.remove('active');
@@ -73,30 +82,55 @@ function initSwiper(slidesCount) {
         swiperInstance.destroy(true, true);
     }
 
-    swiperInstance = new Swiper('.feedback-swiper', {
+    const swiperContainer = document.querySelector('.feedback-swiper');
+    if (!swiperContainer) {
+        console.error('Контейнер .feedback-swiper не найден');
+        return;
+    }
+
+    swiperInstance = new Swiper('.swiper', {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
         slidesPerView: 1,
         spaceBetween: 20,
-        loop: false,
+        on: {
+            init: function () {
+                console.log('Swiper инициализирован, activeIndex:', this.activeIndex);
+                initStarRatings();
+                updatePagination(this.activeIndex, slidesCount);
+            },
+            slideChange: function () {
+                console.log('Слайд изменён, activeIndex:', this.activeIndex);
+                initStarRatings();
+                updatePagination(this.activeIndex, slidesCount);
+            },
+        },
     });
 
-    swiperInstance.on('slideChange', () => {
-        updatePagination(swiperInstance.activeIndex, slidesCount);
-    });
+    const firstBtn = document.getElementById('pagination-first');
+    const middleBtn = document.getElementById('pagination-middle');
+    const lastBtn = document.getElementById('pagination-last');
+    if (!firstBtn || !middleBtn || !lastBtn) {
+        console.error('Один или несколько элементов пагинации не найдены');
+        return;
+    }
 
-    updatePagination(swiperInstance.activeIndex, slidesCount);
-
-    document.getElementById('pagination-first').onclick = () => swiperInstance.slideTo(0);
-    document.getElementById('pagination-last').onclick = () => swiperInstance.slideTo(slidesCount - 1);
-    document.getElementById('pagination-middle').onclick = () => {
-        if (slidesCount > 2) {
-            swiperInstance.slideTo(1);
+    firstBtn.onclick = () => {
+        console.log('Переход к первому слайду');
+        swiperInstance.slideTo(0);
+    };
+    middleBtn.onclick = () => {
+        if (slidesCount > 5) {
+            console.log('Переход к среднему слайду');
+            swiperInstance.slideTo(4);
         }
     };
-    initStarRatings();
+    lastBtn.onclick = () => {
+        console.log('Переход к последнему слайду');
+        swiperInstance.slideTo(slidesCount - 1);
+    };
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -105,5 +139,5 @@ document.addEventListener('DOMContentLoaded', () => {
             renderSlides(feedbacks);
             initSwiper(feedbacks.length);
         })
-        .catch(err => console.error(err));
+    .catch(err => console.error(err));
 });
