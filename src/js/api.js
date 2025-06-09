@@ -9,11 +9,9 @@ export async function fetchArtists(page, limit) {
         page,
       },
     });
-    return response.data.artists; // тут буде масив артистів
+    return response.data; // повертаємо повний об'єкт
   } catch (err) {
     console.error(err);
-    return []; // щоб не поламати цикл
+    return { artists: [], totalArtists: 0 }; // щоб не поламати цикл
   }
 }
-
-fetchArtists().then(data => console.log(data));
