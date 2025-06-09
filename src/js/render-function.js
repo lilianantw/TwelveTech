@@ -18,6 +18,8 @@ export const createArtistsCartTemplate = ({
 `;
 };
 
+const loaderContainer = document.querySelector('.loader-container');
+
 export function renderArtists(artists, container) {
   if (!artists || !artists.length) return;
 
@@ -32,4 +34,13 @@ export function showLoadMoreButton(button) {
 }
 export function hideLoadMoreButton(button) {
   button.classList.add('hidden');
+}
+
+// function show loader
+export function showLoader() {
+  loaderContainer.classList.remove('hidden');
+}
+//function hide loader
+export function hideLoader() {
+  loaderContainer.classList.add('hidden');
 }
