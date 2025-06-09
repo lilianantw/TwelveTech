@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="svg" href="/TwelveTech/assets/Subtract-WgkK8MAq.svg" />
+    <link rel="icon" type="image/svg+xml" href="/TwelveTech/assets/Subtract-WgkK8MAq.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ArtistsHub</title>
     <link
@@ -13,20 +13,20 @@
       rel="stylesheet"
       href="https://unpkg.com/modern-normalize@2.0.0/modern-normalize.css"
     />
-    
-  <script type="module" crossorigin src="/TwelveTech/index.js"></script>
-  <link rel="modulepreload" crossorigin href="/TwelveTech/assets/vendor-BddunmGi.js">
-  <link rel="stylesheet" crossorigin href="/TwelveTech/assets/vendor-BUrcyj0q.css">
-  <link rel="stylesheet" crossorigin href="/TwelveTech/assets/index-6BArwBug.css">
-
+    <script type="module" crossorigin src="/TwelveTech/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/TwelveTech/assets/vendor-CsQmPkTk.js">
+    <link rel="stylesheet" crossorigin href="/TwelveTech/assets/vendor-BUrcyj0q.css">
+    <link rel="stylesheet" crossorigin href="/TwelveTech/assets/index-k-kJQRel.css">
+  </head>
   <body>
     <header class="page-header">
   <div class="container header-container">
     <nav class="header-nav">
       <a href="/" class="header-logo-link">
-      <svg class="logo-icon" width="119" height="52">
-        <use href="/TwelveTech/assets/symbol-defs-CtG-HsyO.svg#icon-logo"></use>
-      </svg></a>
+        <svg class="logo-icon" width="119" height="52">
+          <use href="/TwelveTech/assets/symbol-defs-Cdy2MAzK.svg#icon-logo"></use>
+        </svg>
+      </a>
 
       <ul class="header-nav-list">
         <li class="header-nav-item">
@@ -40,16 +40,19 @@
         </li>
       </ul>
     </nav>
-    <button class="burger-btn" type="button" aria-label="Open menu"> <svg class="burger-icon"  width="16" height="12">
-        <use href="/TwelveTech/assets/symbol-defs-CtG-HsyO.svg#icon-button-menu"> </use>
-      </svg></button>
+
+    <button class="burger-btn" type="button" aria-label="Open menu">
+      <svg class="burger-icon" width="24" height="24">
+        <use href="/TwelveTech/assets/symbol-defs-Cdy2MAzK.svg#icon-button-menu"></use>
+      </svg>
+    </button>
   </div>
 </header>
 
     <div class="mobile-backdrop">
     <div class="mobile-menu">
         <button class="mobile-close" aria-label="Close menu"> <svg class="close-icon" width="24" height="24">
-                <use href="/TwelveTech/assets/symbol-defs-CtG-HsyO.svg#icon-button-menu-close"> </use>
+                <use href="/TwelveTech/assets/symbol-defs-Cdy2MAzK.svg#icon-button-menu-close"> </use>
             </svg></button>
                 <ul class="mobile-nav">
                     <li class="mob-nav-item">
@@ -65,6 +68,7 @@
             
     </div>
 </div>
+
     <main>
       <section class="hero-section">
   <div class="container hero-container">
@@ -95,7 +99,34 @@
 
       <section class="about-us-section">
   <div class="container about-us-container">
-    <h3>About</h3>
+    <div class="about-img-container">
+      <picture>
+        <source
+          media="(min-width: 1440px)"
+          srcset="../img/team.jpg 1x, ../img/team2x.jpg 2x"
+        />
+        <source
+          media="(min-width: 768px)"
+          srcset="../img/team-table.jpg 1x, ../img/team-table2x.jpg 2x"
+        />
+        <source
+          media="(max-width: 767px)"
+          srcset="../img/team-mob.jpg 1x, ../img/team-mob2x.jpg 2x"
+        />
+        <img src="../img/team.jpg" alt="Team" />
+      </picture>
+    </div>
+    <div class="about-text-container">
+      <svg class="logo-icon" width="80" height="80">
+        <use href="/TwelveTech/assets/symbol-defs-Cdy2MAzK.svg#icon-logo-about-us"></use>
+      </svg>
+      <h2 class="about-title">About ArtistsHub</h2>
+      <p class="about-text">
+        At ArtistsHub, our mission is to connect music lovers with the artists
+        they adore. We strive to create a vibrant community where discovering
+        new music is as enjoyable as listening to it.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -121,6 +152,14 @@
 
     <div class="modal-artists">
   <h3>Modal</h3>
+  <div class="backdrop is-hidden" id="artist-modal">
+    <div class="modal">
+      <button type="button" class="close-btn" aria-label="Close modal">
+        &times;
+      </button>
+      <div class="modal-content"></div>
+    </div>
+  </div>
 </div>
 
     <footer class="footer-section">
@@ -128,7 +167,7 @@
     <div class="footer-logo-wrapper">
     <a href="../index.html" class="footer-logo">
       <svg class="footer-logo-svg" width="84" height="36">
-        <use href="/TwelveTech/assets/symbol-defs-CtG-HsyO.svg#icon-logo"></use>
+        <use href="/TwelveTech/assets/symbol-defs-Cdy2MAzK.svg#icon-logo"></use>
       </svg>
     </a>
   </div>
@@ -146,21 +185,21 @@
     <li class="footer-social-item">
   <a  class="footer-social-link" href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
     <svg class="social-icon" width="40" height="40">
-      <use href="/TwelveTech/assets/symbol-defs-CtG-HsyO.svg#icon-instagram"></use>
+      <use href="/TwelveTech/assets/symbol-defs-Cdy2MAzK.svg#icon-instagram"></use>
     </svg>
   </a>
 </li>
 <li class="footer-social-item">
   <a  class="footer-social-link" href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
     <svg class="social-icon" width="40" height="40">
-      <use href="/TwelveTech/assets/symbol-defs-CtG-HsyO.svg#icon-facebook"></use>
+      <use href="/TwelveTech/assets/symbol-defs-Cdy2MAzK.svg#icon-facebook"></use>
     </svg>
   </a>
 </li>
 <li class="footer-social-item">
   <a  class="footer-social-link" href="https://www.youtube.com/" rel="noopener noreferrer" target="_blank">
     <svg class="social-icon" width="40" height="40">
-      <use href="/TwelveTech/assets/symbol-defs-CtG-HsyO.svg#icon-youtube"></use>
+      <use href="/TwelveTech/assets/symbol-defs-Cdy2MAzK.svg#icon-youtube"></use>
     </svg>
   </a>
 </li>
