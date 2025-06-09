@@ -31,7 +31,7 @@
   display: none;
 }
 
-.logo-icon {
+.icon-logo {
   margin: 10.63px 6.18px 10.17px 6.18px;
   width: 119px;
   height: 52px;
@@ -77,7 +77,7 @@
     padding-left: 0;
   }
 
-  .logo-icon {
+  .icon-logo {
     fill: #ffffff;
   }
 
