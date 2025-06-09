@@ -23,7 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6.5px 4px 6.5px 20px;
+  padding: 6.5px 4px 6.5px 10px;
   text-align: center;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .icon-logo {
-  margin: 10.63px 6.18px 10.17px 6.18px;
+  padding: 10px 6px 10px 6px;
   width: 119px;
   height: 52px;
   fill: #764191;
@@ -58,6 +58,7 @@
   .header-container {
     max-width: 320px;
     height: 64px;
+    padding-right: 20px;
   }
 }
 
