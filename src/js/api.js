@@ -9,9 +9,9 @@ export async function fetchArtists(page, limit) {
         page,
       },
     });
-    return response.data; // повертаємо повний об'єкт
+    return response.data; // return the full object
   } catch (err) {
     console.error(err);
-    return { artists: [], totalArtists: 0 }; // щоб не поламати цикл
+    return { artists: [], totalArtists: 0 }; // for not to break the cycle
   }
 }

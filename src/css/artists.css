@@ -90,13 +90,14 @@ h2 {
 }
 
 /*--------Loader instalation-------*/
-/* .loader {
+.loader {
   position: relative;
   border: 24px solid #fff;
   border-radius: 50%;
   box-sizing: border-box;
   animation: eat 1s linear infinite;
 }
+
 .loader::after,
 .loader::before {
   content: '';
@@ -141,7 +142,7 @@ h2 {
     left: -5px;
     opacity: 0;
   }
-} */
+}
 
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
