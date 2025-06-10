@@ -1,129 +1,90 @@
 import {
-  createArtistsCartTemplate,
   renderArtists,
   showLoadMoreButton,
   hideLoadMoreButton,
   showLoader,
   hideLoader,
-} from './render-function';
-import { fetchArtists } from './api.js';
+} from './render-function.js';
+import { fetchArtists, LIMIT } from './api.js';
 import iziToast from 'izitoast';
 
-const IMAGES_PER_PAGE = 8;
 let currentPage = 1;
 
 const refs = {
   cardsContainer: document.querySelector('#cards-container'),
-  loadMoreBtn: document.querySelector('.loadMoreBtn'),
+  loadMoreBtn: document.querySelector('.load-more-btn'),
 };
 
-async function init() {
+// ===== Инициализация страницы =====
+async function initArtists() {
   try {
     showLoader();
 
-    const { artists, totalArtists } = await fetchArtists(
-      currentPage,
-      IMAGES_PER_PAGE
-    );
+    const { artists, totalArtists } = await fetchArtists(currentPage, LIMIT);
     renderArtists(artists, refs.cardsContainer);
 
-    const artistsLoaded = currentPage * IMAGES_PER_PAGE;
-    if (artistsLoaded < totalArtists) {
+    if (currentPage * LIMIT < totalArtists) {
       showLoadMoreButton(refs.loadMoreBtn);
     } else {
       hideLoadMoreButton(refs.loadMoreBtn);
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
   } finally {
     hideLoader();
   }
 }
 
-init();
-
-async function onLoadMoreBtn() {
+// ===== Обработка клика "Загрузить ещё" =====
+async function onLoadMoreBtnClick() {
   currentPage++;
   showLoader();
 
   try {
-    const { artists, totalArtists, page } = await fetchArtists(
-      currentPage,
-      IMAGES_PER_PAGE
-    );
-
+    const { artists, totalArtists } = await fetchArtists(currentPage, LIMIT);
     renderArtists(artists, refs.cardsContainer);
 
-    //---Page scrolling
-    const firstNewCard = refs.cardsContainer.lastElementChild; //Get the last item in the gallery
-    await new Promise(resolve => setTimeout(resolve, 100)); // Image upload;pause
+    // Прокрутка до новых карточек
+    const firstNewCard = refs.cardsContainer.lastElementChild;
+    await new Promise(resolve => setTimeout(resolve, 100));
+    const cardHeight = firstNewCard.getBoundingClientRect().height;
+    window.scrollBy({ top: cardHeight * 1, behavior: 'smooth' });
 
-    const cardHeight = firstNewCard.getBoundingClientRect().height; //Calculate height
-    window.scrollBy({
-      top: cardHeight * 1,
-      behavior: 'smooth',
-    });
-
-    //---End of collection
-    const totalPages = Math.ceil(totalArtists / IMAGES_PER_PAGE);
-
+    // Проверка на конец списка
+    const totalPages = Math.ceil(totalArtists / LIMIT);
     if (currentPage >= totalPages) {
       iziToast.info({
         title: '',
-        message: "We're sorry, but you've reached the end of search results.",
+        message: "Вы просмотрели всех артистов.",
         position: 'topRight',
         timeout: 4000,
         titleColor: '#fff',
-        backgroundColor: ' #09f',
+        backgroundColor: '#764191',
         messageColor: '#fff',
       });
       hideLoadMoreButton(refs.loadMoreBtn);
-      refs.loadMoreBtn.removeEventListener('click', onLoadMoreBtn);
+      refs.loadMoreBtn.removeEventListener('click', onLoadMoreBtnClick);
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
   } finally {
     hideLoader();
   }
 }
 
-//--------Learn More Btn------
-
+// ===== Обработка кнопки "Узнать больше" =====
 function onArtistCardClick(event) {
   const learnMoreBtn = event.target.closest('.learn-more-btn');
   if (!learnMoreBtn) return;
 
   const artistId = learnMoreBtn.dataset.artistId;
-
   if (!artistId) return;
 
-  //openArtistModal(artistId); // ← here invoke your modal logic
+  // openArtistModal(artistId); // ← сюда подключить модалку, если будет нужно
 }
 
-refs.loadMoreBtn.addEventListener('click', onLoadMoreBtn);
+// ===== Запуск при загрузке страницы =====
+document.addEventListener('DOMContentLoaded', initArtists);
+refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 refs.cardsContainer.addEventListener('click', onArtistCardClick);
 
-//as an example for me
-
-// import axios from 'axios';
-// export async function openArtistModal(artistId) {
-//   try {
-//     const { data } = await axios.get(`/artists/${artistId}`);
-//      Рендеримо дані в DOM
-//     const modalMarkup = `
-//       <div class="modal">
-//         <button class="close-modal">X</button>
-//         <h2>${data.strArtist}</h2>
-//         <img src="${data.strArtistThumb}" alt="${data.strArtist}" />
-//         <p>${data.strBiographyEN}</p>
-//         <ul>${data.genres.map(genre => `<li>${genre}</li>`).join('')}</ul>
-//       </div>
-//     `;
-
-//     const modalContainer = document.querySelector('.modal-container');
-//     modalContainer.innerHTML = modalMarkup;
-//     modalContainer.classList.add('is-visible');
-//   } catch (err) {
-//     console.error('Error fetching artist details:', err);
-//   }
-// }
