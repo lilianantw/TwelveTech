@@ -22,20 +22,6 @@ async function loadFeedbacks() {
 
 loadFeedbacks();
 
-function createFeedbackSlide({ rating, text, user }) {
-  const slide = document.createElement('div');
-  slide.classList.add('swiper-slide');
-  const roundedRating = Math.round(rating);
-  slide.innerHTML = `
-    <div class="feedback-card">
-      <div class="feedback-stars">${renderStars(roundedRating)}</div>
-      <p class="feedback-text">"${text}"</p>
-      <p class="feedback-user">${user}</p>
-    </div>
-  `;
-  return slide;
-}
-
 function renderStars(count) {
   const max = 5;
   let starsHTML = '';
@@ -48,6 +34,20 @@ function renderStars(count) {
     `;
   }
   return starsHTML;
+}
+
+function createFeedbackSlide({ rating, text, user }) {
+  const slide = document.createElement('div');
+  slide.classList.add('swiper-slide');
+  const roundedRating = Math.round(rating);
+  slide.innerHTML = `
+    <div class="feedback-card">
+      <div class="feedback-stars">${renderStars(roundedRating)}</div>
+      <p class="feedback-text">"${text}"</p>
+      <p class="feedback-user">${user}</p>
+    </div>
+  `;
+  return slide;
 }
 
 function initSwiper() {
