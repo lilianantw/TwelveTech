@@ -42,7 +42,7 @@ function renderStars(count) {
     const starClass = i <= count ? 'star-filled': 'star-outline';
     starsHTML += `
       <svg class="star-icon ${starClass}" width="24" height="24">
-        <use href="/src/img/symbol-defs.svg#${i <= count ? 'icon-star-filled' : 'icon-star-outline'}"></use>
+        <use href="/img/symbol-defs.svg#${i <= count ? 'icon-star-filled' : 'icon-star-outline'}"></use>
       </svg>
     `;
   }
