@@ -17,6 +17,7 @@
     width: 280px;
     height: 168px;
     margin-top: 48px;
+    align-items: center;
   }
 
   .about-title {
