@@ -40,6 +40,15 @@
     font-weight: 600;
     line-height: 1.5; /* 24px */
   }
+   .footer-nav-link:hover,
+  .footer-nav-link:focus {
+    color: #764191;
+  }
+
+  .footer-nav-link:active {
+    color: #fff;
+
+  }
 
   .divider {
     background: rgba(255, 255, 255, 0.2);
