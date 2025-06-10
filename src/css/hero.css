@@ -204,9 +204,6 @@
 
 @media screen and (min-width: 768px) {
 
-.hero-section {
-}
-
 .hero-section::before {
     height: 125px;
 }
@@ -244,12 +241,6 @@
 
 .main-box {
     width: calc((100% - 18px) / 2);
-}
-
-.main-list {
-}
-
-.main-item {
 }
 
 .main-img1 {
@@ -322,17 +313,7 @@
 
 .hero-section {
 }
-
-.hero-section::before,
-.hero-section::after {
-}
-
-.hero-section::before {
-}
-
-.hero-section::after {
-}
-
+  
 .hero-container {
     display: flex;
     flex-direction: row;
@@ -367,9 +348,6 @@
 
 .main-box {
     width: calc((100% - 17px) / 2);
-}
-
-.main-list {
 }
 
 .main-item {
