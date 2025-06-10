@@ -39,6 +39,12 @@
   fill: #764191;
 }
 
+.icon-logo:hover,
+.icon-logo:focus {
+  fill: #55236e;
+  transition: fill 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 .burger-btn {
   width: 48px;
   height: 48px;
@@ -109,12 +115,11 @@
 
   .header-nav-link:hover,
   .header-nav-link:focus {
-    color: #764191;
+    color: #55236e;
   }
 
   .header-nav-link:active {
     color: #fff;
-
   }
 }
 

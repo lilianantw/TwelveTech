@@ -16,7 +16,7 @@ const refs = {
   loadMoreBtn: document.querySelector('.load-more-btn'),
 };
 
-// ===== Инициализация страницы =====
+// ===== ІНІЦІАЛІЗАЦІЯ СТОРІНКИ =====
 async function initArtists() {
   try {
     showLoader();
@@ -36,7 +36,7 @@ async function initArtists() {
   }
 }
 
-// ===== Обработка клика "Загрузить ещё" =====
+// ===== ОПРАЦЮВАННЯ КЛІКУ "ЗАВАНТАЖИТИ ЩЕ" =====
 async function onLoadMoreBtnClick() {
   currentPage++;
   showLoader();
@@ -45,18 +45,16 @@ async function onLoadMoreBtnClick() {
     const { artists, totalArtists } = await fetchArtists(currentPage, LIMIT);
     renderArtists(artists, refs.cardsContainer);
 
-    // Прокрутка до новых карточек
     const firstNewCard = refs.cardsContainer.lastElementChild;
     await new Promise(resolve => setTimeout(resolve, 100));
     const cardHeight = firstNewCard.getBoundingClientRect().height;
     window.scrollBy({ top: cardHeight * 1, behavior: 'smooth' });
 
-    // Проверка на конец списка
     const totalPages = Math.ceil(totalArtists / LIMIT);
     if (currentPage >= totalPages) {
       iziToast.info({
         title: '',
-        message: "Вы просмотрели всех артистов.",
+        message: "Ви, передивились всіх артистів.",
         position: 'topRight',
         timeout: 4000,
         titleColor: '#fff',
@@ -73,7 +71,7 @@ async function onLoadMoreBtnClick() {
   }
 }
 
-// ===== Обработка кнопки "Узнать больше" =====
+// ===== ОПРАЦЮВАННЯ КНОПКИ "ДІЗНАТИСЬ БІЛЬШЕ" =====
 function onArtistCardClick(event) {
   const learnMoreBtn = event.target.closest('.learn-more-btn');
   if (!learnMoreBtn) return;
@@ -84,7 +82,6 @@ function onArtistCardClick(event) {
   openArtistModal(artistId); // ← сюда подключить модалку, если будет нужно
 }
 
-// ===== Запуск при загрузке страницы =====
 document.addEventListener('DOMContentLoaded', initArtists);
 refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 refs.cardsContainer.addEventListener('click', onArtistCardClick);
