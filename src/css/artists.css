@@ -11,13 +11,6 @@ body {
   color: #fff;
 }
 
-.container {
-  padding: 0 16px;
-  min-width: 320px;
-  max-width: 374px;
-  margin: 0 auto;
-}
-
 .artists-container {
   box-sizing: border-box;
 }
@@ -58,8 +51,7 @@ h2,
   margin: 0 auto;
 }
 
-.artist-list,
-.cards-grid {
+.artist-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -82,7 +74,6 @@ h2,
   margin-bottom: 32px;
 }
 
-.artist-img,
 .artist-photo {
   object-fit: cover;
   object-position: center 15%;
@@ -123,7 +114,6 @@ h2,
   margin: 0 0 8px;
 }
 
-.artist-about,
 .artist-info {
   overflow: hidden;
   font-family: 'IBM Plex Sans', sans-serif;
@@ -139,8 +129,7 @@ h2,
   box-orient: vertical;
 }
 
-.load-more-btn,
-.loadMoreBtn {
+.load-more-btn {
   border-radius: 12px;
   padding: 10px 24px;
   width: 288px;
@@ -164,15 +153,10 @@ h2,
   cursor: pointer;
 }
 
-.icon-icon-down-arrow-alt {
-  margin-left: 12px;
-  fill: #fff;
-}
-
 .learn-more-btn {
   display: flex;
   align-items: center;
-  justify-content: baseline;
+  justify-content: left;
   background: none;
   color: #fff;
   font-family: 'IBM Plex Sans', sans-serif;
@@ -181,6 +165,7 @@ h2,
   line-height: 1.5;
   border: none;
   height: 27px;
+  margin-bottom: 32px;
 }
 
 .learn-more-btn::after {
@@ -278,9 +263,13 @@ h2,
     max-width: 768px;
   }
 
-  .artist-photo,
-  .artist-img {
+  .artist-photo {
     height: 432px;
+    margin-bottom: 24px;
+  }
+
+  .learn-more-btn {
+    margin-bottom: 0;
   }
 
   .load-more-btn {
@@ -289,13 +278,21 @@ h2,
   }
 
   .artist-card {
+    gap: 0;
     width: 704px;
     min-width: 450px;
+  }
+  .artist-card:not(:last-child) {
+    margin-bottom: 0;
   }
 
   .artist-list {
     flex-direction: row;
     gap: 32px;
+  }
+
+  .artist-info {
+    margin-bottom: 24px;
   }
 
   .artists-header-and-list {
@@ -313,6 +310,10 @@ h2,
     max-width: 1440px;
   }
 
+  h1 {
+    margin-top: 112px;
+  }
+
   h2,
   .section-title {
     font-size: 60px;
@@ -320,7 +321,7 @@ h2,
     margin-bottom: 80px;
   }
 
-  .artist-img {
+  .artist-photo {
     height: 393px;
   }
 
@@ -328,20 +329,8 @@ h2,
     width: calc((100% - 32px) / 2);
   }
 
-  .artist-list {
-    gap: 32px;
-  }
-
   .load-more-btn {
     width: 170px;
     margin: 64px auto 0;
-  }
-
-  .artists-header-and-list {
-    max-width: 1312px;
-  }
-
-  .artists-section {
-    padding: 64px 112px;
   }
 }

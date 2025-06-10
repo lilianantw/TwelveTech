@@ -5,14 +5,20 @@ import Raty from 'raty-js';
 let swiperInstance;
 
 async function fetchFeedbacks() {
-  const response = await fetch('https://sound-wave.b.goit.study/api/feedbacks');
-  if (!response.ok) {
-    throw new Error('Помилка завантаження');
+  try {
+    const response = await fetch(
+      'https://sound-wave.b.goit.study/api/feedbacks'
+    );
+    if (!response.ok) {
+      throw new Error('Ошибка загрузки данных');
+    }
+    const data = await response.json();
+    console.log('Полученные отзывы:', data);
+    return data.data;
+  } catch (error) {
+    console.error('Ошибка при получении отзывов:', error);
+    throw error;
   }
-
-  const data = await response.json();
-  console.log('Отримані відгуки:', data);
-  return data.data;
 }
 
 function renderSlides(feedbacks) {
@@ -29,13 +35,11 @@ function renderSlides(feedbacks) {
     slide.dataset.id = id;
 
     slide.innerHTML = `
-        <div class="feedback-card">
-            <h4>${name}</h4>
-            <p>${descr}</p>
-            <div class="star-rating" data-rating="${
-              Math.round(rating) || 0
-            }"></div>
-        </div>`;
+      <div class="feedback-card">
+        <h4>${name}</h4>
+        <p>${descr}</p>
+        <div class="star-rating" data-rating="${Math.round(rating) || 0}"></div>
+      </div>`;
 
     wrapper.appendChild(slide);
   });
@@ -46,7 +50,7 @@ function initStarRatings() {
   console.log('Найдено star-rating элементов:', starContainers.length);
   starContainers.forEach(container => {
     const rating = parseInt(container.dataset.rating, 10) || 0;
-    console.log('Rating для элемента:', rating);
+    console.log('Рейтинг для элемента:', rating);
     new Raty(container, {
       readOnly: true,
       score: rating,
@@ -152,5 +156,5 @@ document.addEventListener('DOMContentLoaded', () => {
       renderSlides(feedbacks);
       initSwiper(feedbacks.length);
     })
-    .catch(err => console.error(err));
+    .catch(err => console.error('Ошибка инициализации:', err));
 });
