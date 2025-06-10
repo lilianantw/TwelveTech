@@ -148,6 +148,10 @@ h1 {
   display: flex;
   justify-content: center;
 }
+.icon-icon-down-arrow-alt {
+  margin-left: 12px;
+  fill: #fff;
+}
 
 .learn-more-btn {
   background: none;
@@ -221,7 +225,7 @@ h1 {
   .artists-header-and-list {
     max-width: 1312px;
   }
-  
+
   .section-title {
     font-size: 60px;
     line-height: 1.2;
