@@ -1,42 +1,23 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+import { fetchFeedbacks } from './api';
 
 let swiperInstance;
 
-async function fetchFeedbacks() {
-    const response = await fetch('https://sound-wave.b.goit.study/api/feedbacks');
-    if (!response.ok) {
-        throw new Error('Помилка завантаження');
-    }
-
-    const data = await response.json();
-    console.log('Отримані відгуки:', data);
-    return data.data;
-}
-
 function renderSlides(feedbacks) {
     const wrapper = document.getElementById('feedback-list');
-    if (!wrapper) {
-        console.error('Элемент #feedback-list не найден');
-        return;
-    }
     wrapper.innerHTML = '';
-
-    feedbacks.forEach(({ id, name, descr, rating }) => {
+    feedbacks.forEach(({ name, descr, rating }) => {
         const slide = document.createElement('div');
         slide.classList.add('swiper-slide');
-        slide.dataset.id = id;
-
         slide.innerHTML = `
             <div class="feedback-card">
                 <div class="star-rating" data-rating="${Math.round(rating) || 0}"></div>
                 <p class="feedback-text">"${descr}"</p>
                 <p class="feedback-author">${name}</p>
             </div>`;
-
         wrapper.appendChild(slide);
     });
-
     initStarRatings();
 }
 
@@ -60,7 +41,7 @@ function updatePagination(activeIndex, slidesCount) {
     const lastBtn = document.getElementById('pagination-last');
 
     if (!firstBtn || !middleBtn || !lastBtn) {
-        console.error('Один или несколько элементов пагинации не найдены');
+        console.error('Елементи пагінації не знайдено');
         return;
     }
 
@@ -82,11 +63,11 @@ function initSwiper(slidesCount) {
         swiperInstance.destroy(true, true);
     }
 
-    const swiperContainer = document.querySelector('.feedback-swiper');
-    if (!swiperContainer) {
-        console.error('Контейнер .feedback-swiper не найден');
-        return;
-    }
+    // const swiperContainer = document.querySelector('.feedback-swiper');
+    // if (!swiperContainer) {
+    //     console.error('Контейнер .feedback-swiper не найден');
+    //     return;
+    // }
 
     swiperInstance = new Swiper('.swiper', {
         navigation: {
@@ -113,7 +94,7 @@ function initSwiper(slidesCount) {
     const middleBtn = document.getElementById('pagination-middle');
     const lastBtn = document.getElementById('pagination-last');
     if (!firstBtn || !middleBtn || !lastBtn) {
-        console.error('Один или несколько элементов пагинации не найдены');
+        console.error('Елементи пагінації не знайдено');
         return;
     }
 
@@ -133,11 +114,17 @@ function initSwiper(slidesCount) {
     };
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetchFeedbacks()
-        .then(feedbacks => {
-            renderSlides(feedbacks);
-            initSwiper(feedbacks.length);
-        })
-    .catch(err => console.error(err));
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const feedbacks = await fetchFeedbacks();
+        if (!Array.isArray(feedbacks)) {
+            console.error('Відгуки не масив:', feedbacks);
+            return;
+        }
+
+        renderSlides(feedbacks);
+        initSwiper(feedbacks.length);
+    } catch (err) {
+        console.error('Помилка ініціалізації відгуків:', err);
+    }
 });

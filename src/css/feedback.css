@@ -1,7 +1,10 @@
 .feedback-section {
-    padding: 64px 0;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .feedback-card {
     width: 288px;
@@ -84,10 +87,27 @@
 
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
-    .feedback-card,
+    .feedback-card {
+        width: 704px;
+        height: 253px;
+        align-items: center;
+    }
+    .feedback-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .swiper {
         width: 704px;
         height: 253px;
+        margin: 0 auto;
+    }
+    .feedback-text {
+        font-size: 26px;
+        max-width: 518px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     .custom-pagination {
         width: 704px;
@@ -120,6 +140,9 @@
         width: 1312px;
         height: 353px;
         padding: 59px 0;
+    }
+    .feedback-text {
+        max-width: 866px;
     }
     .custom-pagination {
         width: 1312px;
