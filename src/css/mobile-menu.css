@@ -24,22 +24,22 @@
 .mobile-nav {
   margin: auto;
   width: 109px;
+  margin-top: 39px;
   height: 181px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 39px;
 }
 
 .mob-nav-item {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 26px;
   text-decoration: none;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 500;
-  font-size: 26px;
   line-height: 1.5;
   color: #fff;
 }
@@ -80,9 +80,9 @@
   right: 0;
   background: transparent;
   border: none;
-  margin-top: 26.34px;
-  margin-right: 26.34px;
   padding: 0;
+  margin-top: 26.3px;
+  margin-right: 26.3px;
 }
 
 .close-icon {
@@ -95,10 +95,10 @@
   }
 
   .mobile-logo {
-    display: block;
-    margin: 10.63px 6.18px 10.17px 6.18px;
     width: 106px;
     height: 30px;
+    display: block;
+    margin: 10px 6px 10px 6px;
   }
 }
 
