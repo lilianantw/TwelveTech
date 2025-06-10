@@ -1,150 +1,204 @@
 .feedback-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: black;
+  margin: 0 auto;
 }
 
+.feedback-container {
+  padding: 64px 16px;
+}
+
+.feedback-button-prev,
+.feedback-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #060307;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.feedback-button-prev:hover,
+.feedback-button-next:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.feedback-button-prev {
+  left: 0;
+}
+
+.feedback-button-next {
+  right: 0;
+}
+
+.icon-prev,
+.icon-next {
+  width: 24px;
+  height: 24px;
+  fill: #fff; 
+}
+
+.feedback-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 32px;
+}
+
+.star-icon {
+  width: 24px;
+  height: 24px;
+  fill: #764191; 
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+.star-icon.star-filled {
+  fill: rgba(118, 65, 145, 1);
+}
+
+.star-icon.star-outline {
+  fill: rgba(255, 255, 255, 1);
+}
+
+.feedback-button-prev::after,
+.feedback-button-next::after {
+  display: none;
+}
 
 .feedback-card {
-    width: 288px;
-    height: 209px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
-.star-rating {
-    margin-bottom: 32px;
-}
-
-.star {
-    display: inline-block;
-    width: 20px;
-    height: 19px;
-    margin-right: 4px;
-}
-
-.star.on {
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23800080" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>');
-}
-
-.star.off {
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23e0e0e0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73-1.64 7.03L12 17.27l6.18 3.73-1.64-7.03L22 9.24z"/></svg>');
+  width: 288px;
+  height: 209px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .feedback-text {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    text-align: center;
-    margin-bottom: 32px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #fff;
+  width: 288px;
+  margin-bottom: 32px;
 }
 
-.feedback-author {
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 1.5;
+.feedback-user {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.feedback-pagination {
+  position: static !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .custom-pagination {
-    width: 288px;
-    height: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 9px;
-    margin-top: 16px;  
+  width: 288px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
 }
 
 .pagination-btn {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #333030;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #333030;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .pagination-btn.active {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .swiper {
-    width: 288px;
-    height: 209px;
-    overflow: hidden;
+  width: 288px;
+  height: 209px;
+  overflow: hidden;
 }
 
-    /* Приховуємо кнопки на екранах до 768px */
 @media (max-width: 767px) {
-    .swiper-button-next,
-    .swiper-button-prev {
-        display: none !important;
-    }
+  .feedback-button-next,
+  .feedback-button-prev {
+    display: none !important;
+  }
 }
 
-/* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
-    .feedback-card {
-        width: 704px;
-        height: 253px;
-        align-items: center;
-    }
-    .feedback-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .swiper {
-        width: 704px;
-        height: 253px;
-        margin: 0 auto;
-    }
-    .feedback-text {
-        font-size: 26px;
-        max-width: 518px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .custom-pagination {
-        width: 704px;
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-        border: 1px solid #333030;
-        border-radius: 8px;
-        padding: 12px;
-        width: 48px;
-        height: 48px;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        color: white;
-    }
+  .feedback-card {
+    width: 704px;
+    height: 253px;
+    align-items: center;
+  }
+  .feedback-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .swiper {
+    width: 704px;
+    height: 253px;
+    margin: 0 auto;
+  }
+  .feedback-text {
+    font-size: 26px;
+    max-width: 518px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .custom-pagination {
+    width: 704px;
+  }
+  .feedback-button-next,
+  .feedback-button-prev {
+    border: 1px solid #333030;
+    border-radius: 8px;
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-/* Styles for Desktop devices */
 @media only screen and (min-width: 1440px) {
-    .feedback-section {
-        padding: 112px 0;
-    }
-    .feedback-card,
-    .swiper {
-        width: 1312px;
-        height: 353px;
-        padding: 59px 0;
-    }
-    .feedback-text {
-        max-width: 866px;
-    }
-    .custom-pagination {
-        width: 1312px;
-    }
+  .feedback-section {
+    padding: 112px 0;
+  }
+  .feedback-card,
+  .swiper {
+    width: 1312px;
+    height: 353px;
+    padding: 59px 0;
+  }
+  .feedback-text {
+    max-width: 866px;
+  }
+  .custom-pagination {
+    width: 1312px;
+  }
 }
