@@ -59,7 +59,7 @@ import{a as m,i as w,S as k}from"./assets/vendor-rzQNFhEO.js";(function(){const 
     </div>
   `,t}function O(e){let n="";for(let t=1;t<=5;t++){const o=t<=e?"star-filled":"star-outline";n+=`
       <svg class="star-icon ${o}" width="24" height="24">
-        <use href="../img/symbol-defs.svg#${t<=e?"icon-star-filled":"icon-star-outline"}"></use>
+        <use href="src/img/symbol-defs.svg#${t<=e?"icon-star-filled":"icon-star-outline"}"></use>
       </svg>
     `}return n}function P(){const e=new k(".feedback-swiper",{loop:!1,navigation:{nextEl:".feedback-button-next",prevEl:".feedback-button-prev"},pagination:{el:".feedback-pagination",clickable:!0,type:"custom",renderCustom:function(s,n,t){const a=t-1;let r="",l="",i="";return n-1===0?r="swiper-pagination-bullet-active":n-1===a?i="swiper-pagination-bullet-active":l="swiper-pagination-bullet-active",`
           <span class="swiper-pagination-bullet ${r}" data-slide-index="0"></span>
