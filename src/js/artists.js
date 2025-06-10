@@ -1,42 +1,90 @@
+import {
+  renderArtists,
+  showLoadMoreButton,
+  hideLoadMoreButton,
+  showLoader,
+  hideLoader,
+} from './render-function.js';
 import { fetchArtists, LIMIT } from './api.js';
-import { renderArtists } from './render-function.js';
+import iziToast from 'izitoast';
 
 let currentPage = 1;
 
-const cardsContainer = document.getElementById('cards-container');
-const loadMoreBtn = document.querySelector('.load-more-btn');
-const loader = document.querySelector('.loader');
+const refs = {
+  cardsContainer: document.querySelector('#cards-container'),
+  loadMoreBtn: document.querySelector('.load-more-btn'),
+};
 
-// ===== Load initial artists =====
+// ===== Инициализация страницы =====
 async function initArtists() {
-  loader.classList.remove('hidden');
+  try {
+    showLoader();
 
-  const { artists } = await fetchArtists(currentPage);
-  renderArtists(artists, cardsContainer);
+    const { artists, totalArtists } = await fetchArtists(currentPage, LIMIT);
+    renderArtists(artists, refs.cardsContainer);
 
-  loader.classList.add('hidden');
-
-  if (artists.length === LIMIT) {
-    loadMoreBtn.classList.remove('hidden');
-  } else {
-    loadMoreBtn.classList.add('hidden');
+    if (currentPage * LIMIT < totalArtists) {
+      showLoadMoreButton(refs.loadMoreBtn);
+    } else {
+      hideLoadMoreButton(refs.loadMoreBtn);
+    }
+  } catch (err) {
+    console.error(err);
+  } finally {
+    hideLoader();
   }
 }
 
-// ===== Load more logic =====
-loadMoreBtn.addEventListener('click', async () => {
+// ===== Обработка клика "Загрузить ещё" =====
+async function onLoadMoreBtnClick() {
   currentPage++;
-  loader.classList.remove('hidden');
+  showLoader();
 
-  const { artists } = await fetchArtists(currentPage);
-  renderArtists(artists, cardsContainer);
+  try {
+    const { artists, totalArtists } = await fetchArtists(currentPage, LIMIT);
+    renderArtists(artists, refs.cardsContainer);
 
-  loader.classList.add('hidden');
+    // Прокрутка до новых карточек
+    const firstNewCard = refs.cardsContainer.lastElementChild;
+    await new Promise(resolve => setTimeout(resolve, 100));
+    const cardHeight = firstNewCard.getBoundingClientRect().height;
+    window.scrollBy({ top: cardHeight * 1, behavior: 'smooth' });
 
-  if (artists.length < LIMIT) {
-    loadMoreBtn.classList.add('hidden');
+    // Проверка на конец списка
+    const totalPages = Math.ceil(totalArtists / LIMIT);
+    if (currentPage >= totalPages) {
+      iziToast.info({
+        title: '',
+        message: "Вы просмотрели всех артистов.",
+        position: 'topRight',
+        timeout: 4000,
+        titleColor: '#fff',
+        backgroundColor: '#764191',
+        messageColor: '#fff',
+      });
+      hideLoadMoreButton(refs.loadMoreBtn);
+      refs.loadMoreBtn.removeEventListener('click', onLoadMoreBtnClick);
+    }
+  } catch (err) {
+    console.error(err);
+  } finally {
+    hideLoader();
   }
-});
+}
 
-// ===== Initialize on page load =====
+// ===== Обработка кнопки "Узнать больше" =====
+function onArtistCardClick(event) {
+  const learnMoreBtn = event.target.closest('.learn-more-btn');
+  if (!learnMoreBtn) return;
+
+  const artistId = learnMoreBtn.dataset.artistId;
+  if (!artistId) return;
+
+  // openArtistModal(artistId); // ← сюда подключить модалку, если будет нужно
+}
+
+// ===== Запуск при загрузке страницы =====
 document.addEventListener('DOMContentLoaded', initArtists);
+refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
+refs.cardsContainer.addEventListener('click', onArtistCardClick);
+
