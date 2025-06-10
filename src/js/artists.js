@@ -6,6 +6,7 @@ import {
   hideLoader,
 } from './render-function.js';
 import { fetchArtists, LIMIT } from './api.js';
+import { openArtistModal } from './modal.js';
 import iziToast from 'izitoast';
 
 let currentPage = 1;
@@ -80,7 +81,7 @@ function onArtistCardClick(event) {
   const artistId = learnMoreBtn.dataset.artistId;
   if (!artistId) return;
 
-  // openArtistModal(artistId); // ← сюда подключить модалку, если будет нужно
+  openArtistModal(artistId); // ← сюда подключить модалку, если будет нужно
 }
 
 // ===== Запуск при загрузке страницы =====

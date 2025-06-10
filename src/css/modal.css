@@ -1,1 +1,174 @@
-/* modal.css: Стили для модального окна. Заполняется ответственным разработчиком. */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.modal-artist {
+  position: relative;
+  background-color: #060307;
+  border-radius: 8px;
+  max-width: 2560px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.no-scroll {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: inherit;
+  border: none;
+}
+
+.modal-close-svg {
+  fill: #FFF;
+}
+
+.modal-content, 
+.modal-albums-content {
+  padding: 52px 8px;
+  font-family: 'Epilogue', sans-serif;
+}
+
+.band-title {
+  font-size: 20px;
+  letter-spacing: -1%;
+  text-align: center;
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.band-thumbnail{ 
+  display: block;
+  width: 288px;
+  height: 177px;
+  margin-bottom: 32px;
+}
+
+.modal-band-overview {
+  margin-bottom: 16px;
+}
+
+.modal-band-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  line-height: 1.5;
+  color: #FFF;
+}
+
+.modal-band-text {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0%;
+  line-height: 1.5;
+  color: #FFF;
+}
+
+.band-albums-title {
+  font-size: 24px;
+  letter-spacing: -1%;
+  line-height: 1.3;
+  color: #FFF;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content,
+  .modal-albums-content {
+    padding: 64px 24px;
+  }
+
+  .modal-close-btn {
+    right: 48;
+  }
+
+  .band-title {
+    margin-bottom: 48px;
+  }
+
+  .band-thumbnail {
+    width: 654px;
+    height: 402px;
+  }
+
+  .band-years,
+  .band-sex,
+  .band-members,
+  .band-country {
+    display: inline-block;
+  }
+  
+  .band-years,
+  .band-members {
+    width: 146px;
+  }
+
+  .band-sex,
+  .band-country {
+    margin-left: 24px;
+  }
+
+  .modal-band-overview {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modal-content,
+  .modal-albums-content {
+    padding: 64px 64px;
+  }
+
+  .modal-close-btn {
+    right: 16;
+  }
+
+  .wrapper {
+    display: flex;
+  }
+
+  .band-thumbnail {
+    /* display: inline-block; */
+    width: 576px;
+    height: 354px;
+    margin-right: 32px;
+  }
+
+  .band-sex,
+  .band-country {
+    margin-left: 24px;
+  }
+
+  .modal-band-history {
+    margin-bottom: 24px;
+  }
+}
