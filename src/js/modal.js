@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modalBackdrop.classList.remove('is-open');
     document.body.classList.remove('no-scroll');
     modalContent.innerHTML = '';
+    const albumsList = modalBackdrop.querySelector(
+      '#band-albums-list-container'
+    );
+    if (albumsList) albumsList.innerHTML = '';
   }
 
   closeModalBtn.addEventListener('click', closeArtistModal);
@@ -33,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 export async function openArtistModal(artistId) {
   const modalBackdrop = document.getElementById('backdrop');
   const modalContent = modalBackdrop?.querySelector('.modal-content');
-  const bandAlbumsListContent = modalBackdrop?.querySelector('.band-albums-list');
+  const bandAlbumsListContent =
+    modalBackdrop?.querySelector('.band-albums-list');
 
   if (!modalBackdrop || !modalContent) return;
 
@@ -53,7 +58,6 @@ export async function openArtistModal(artistId) {
   } catch (err) {
     modalContent.innerHTML = '<p>Error loading artist data.</p>';
   }
-
 }
 
 function generateArtistMarkup(data) {
@@ -68,7 +72,7 @@ function generateArtistMarkup(data) {
     strGender: sex,
   } = data;
 
-  const resulYear = (diedYear === null) ? "Present" : diedYear;
+  const resulYear = diedYear === null ? 'Present' : diedYear;
   return `
   <h3 class="band-title">${bandName}</h3>
   
@@ -114,9 +118,22 @@ function generateArtistMarkup(data) {
       </div>
     </div>
   </div>
-  `
+  `;
 }
 
 function generateArtistAlbums(data) {
-  console.log(data.albumsList);
+  if (!data.albumsList || data.albumsList.length === 0) {
+    return '<li class="no-albums">No albums found.</li>';
+  }
+
+  return data.albumsList
+    .map(album => {
+      return `
+          <li class="album-item">
+            <img class="album-thumb" src="${album.strAlbumThumb}" alt="${album.strAlbum}" />
+            <p class="album-title">${album.strAlbum}</p>
+          </li>
+        `;
+    })
+    .join('');
 }
