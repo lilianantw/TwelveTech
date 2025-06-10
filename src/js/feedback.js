@@ -1,4 +1,3 @@
-
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 import 'css-star-rating/css/star-rating.css';
@@ -22,20 +21,6 @@ async function loadFeedbacks() {
 
 loadFeedbacks();
 
-function renderStars(count) {
-  const max = 5;
-  let starsHTML = '';
-  for (let i = 1; i <= max; i++) {
-    const starClass = i <= count ? 'star-filled' : 'star-outline';
-    starsHTML += `
-      <svg class="star-icon ${starClass}" width="24" height="24">
-        <use href="./img/symbol-defs.svg#${i <= count ? 'icon-star-filled' : 'icon-star-outline'}"></use>
-      </svg>
-    `;
-  }
-  return starsHTML;
-}
-
 function createFeedbackSlide({ rating, text, user }) {
   const slide = document.createElement('div');
   slide.classList.add('swiper-slide');
@@ -48,6 +33,20 @@ function createFeedbackSlide({ rating, text, user }) {
     </div>
   `;
   return slide;
+}
+
+function renderStars(count) {
+  const max = 5;
+  let starsHTML = '';
+  for (let i = 1; i <= max; i++) {
+    const starClass = i <= count ? 'star-filled' : 'star-outline';
+    starsHTML += `
+      <svg class="star-icon ${starClass}" width="24" height="24">
+        <use href="img/symbol-defs.svg#${i <= count ? 'icon-star-filled' : 'icon-star-outline'}"></use>
+      </svg>
+    `;
+  }
+  return starsHTML;
 }
 
 function initSwiper() {

@@ -1,47 +1,53 @@
 .feedback-section {
-  background-color: black;
-  margin: 0 auto;
+    background-color: black;
+    margin: 0 auto;
 }
 
 .feedback-container {
-  padding: 64px 16px;
+    padding: 64px 16px;
 }
- 
+
+.feedback-button-prev,
+.feedback-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+    width: 48px !important;
+    height: 48px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.feedback-button-prev:hover,
+.feedback-button-next:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.feedback-button-prev {
+    left: 0;
+}
+
+.feedback-button-next {
+    right: 0;
+}
+
 .icon-left,
 .icon-next {
     width: 24px !important;
     height: 24px !important;
     fill: currentColor;
-    color: #fff !important;
+        color: #fff;
 }
 
-.feedback-button-prev,
-.feedback-button-next {
-  position: static;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: black;
-  width: 48px !important;
-  height: 48px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: transform 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  padding: 12px;
-}
 
-.feedback-button-prev:hover,
-.feedback-button-next:hover {
-  transform: translateY(-50%) scale(1.1);
-}
-
-.feedback-button-prev {
-  left: 0;
-}
 .feedback-card {
     display: flex;
     flex-direction: column;
@@ -50,19 +56,13 @@
     margin-bottom: 16px;
     position: relative;
 }
-.feedback-button-next {
-  right: 0;
-}
-
-.feedback-swiper {
-position: relative;
-}
 
 .feedback-stars {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 32px;
+    display: flex;
+    gap: 4px;
+    margin-bottom: 32px;
 }
+
 
 
 .feedback-text {
@@ -85,11 +85,6 @@ position: relative;
     color: #fff;
 }
 
-.feedback-stars {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 32px;
-}
 
 .star-icon {
     width: 24px;
@@ -101,44 +96,43 @@ position: relative;
 }
 
 .star-icon.star-filled {
-    color: #764191;
+    color: rgba(118, 65, 145, 1);
 }
 
 .star-icon.star-outline {
-    color: white;
+    color: rgba(255, 255, 255, 1);
+}
+
+.feedback-button-prev::after,
+.feedback-button-next::after {
+    display: none;
+    content: none;
 }
 
 .feedback-pagination {
-  position: static !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.custom-pagination {
-  width: 288px;
-  height: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  margin-top: 16px;
+
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #fff;
+
 }
 
 .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
-  border-radius: 50%;
     background-color: #4A4A4A;
     opacity: 1;
+    border-radius: 50%;
     margin: 0 6px;
+    transition: background-color 0.3s ease;
     cursor: pointer;
-}
-
-.swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background-color: #fff ;
-
 }
 
 @media screen and (max-width: 767px) {
@@ -152,7 +146,7 @@ position: relative;
 @media screen and (min-width: 768px) and (max-width: 1439px) {
     .feedback-text {
         font-size: 26px;
-        width: 520px;
+        width: 518px;
     }
 }
 
@@ -160,67 +154,10 @@ position: relative;
     .feedback-text {
         font-size: 32px;
         line-height: 1.3;
-        width: 868px;
+        width: 866px;
     }
 
     .feedback-card {
         margin-bottom: 75px;
     }
-}
-
-@media only screen and (min-width: 768px) {
-  .feedback-card {
-    width: 704px;
-    height: 253px;
-    align-items: center;
-  }
-  .feedback-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .swiper {
-    width: 704px;
-    height: 253px;
-    margin: 0 auto;
-  }
-  .feedback-text {
-    font-size: 26px;
-    max-width: 518px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .custom-pagination {
-    width: 704px;
-  }
-  .feedback-button-next,
-  .feedback-button-prev {
-    border: 1px solid #333030;
-    border-radius: 8px;
-    padding: 12px;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .feedback-section {
-    padding: 112px 0;
-  }
-  .feedback-card,
-  .swiper {
-    width: 1312px;
-    height: 353px;
-    padding: 59px 0;
-  }
-  .feedback-text {
-    max-width: 866px;
-  }
-  .custom-pagination {
-    width: 1312px;
-  }
 }
