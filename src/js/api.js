@@ -18,4 +18,28 @@ export async function fetchArtists(page = 1, limit = LIMIT) {
   }
 }
 
+export async function fetchFeedbacks(page = 1, limit = 10) {
+  try {
+    const response = await axios.get('/feedbacks', {
+      params: { page, limit },
+    });
+
+    const result = response.data;
+
+    console.log(result);
+
+    if (Array.isArray(result.data)) {
+      return result.data;
+    } else {
+      console.error(result);
+      return [];
+    }
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
+fetchArtists().then(data => console.log(data));
+
 export { LIMIT };
