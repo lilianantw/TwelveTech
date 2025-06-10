@@ -8,16 +8,33 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+      - name: Checkout code 🛎️
+        uses: actions/checkout@v4
 
-      - name: Install and build 🔧
-        run: |
-          npm install
-          npm run build
+      - name: Set up Node.js 🔧
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      - name: Remove old node_modules
+        run: rm -rf node_modules package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Save build status
+        run: echo "BUILD_STATUS=success" >> $GITHUB_ENV
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+        if: ${{ env.BUILD_STATUS == 'success' }}
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist
