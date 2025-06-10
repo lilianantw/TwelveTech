@@ -51,17 +51,17 @@ import{a as m,i as w,S as k}from"./assets/vendor-rzQNFhEO.js";(function(){const 
       </div>
     </div>
   </div>
-  `}function $(e){console.log(e.albumsList)}let d=1;const c={cardsContainer:document.querySelector("#cards-container"),loadMoreBtn:document.querySelector(".load-more-btn")};async function x(){try{g();const{artists:e,totalArtists:s}=await v(d,u);b(e,c.cardsContainer),d*u<s?E(c.loadMoreBtn):f(c.loadMoreBtn)}catch(e){console.error(e)}finally{h()}}async function L(){d++,g();try{const{artists:e,totalArtists:s}=await v(d,u);b(e,c.cardsContainer);const n=c.cardsContainer.lastElementChild;await new Promise(o=>setTimeout(o,100));const t=n.getBoundingClientRect().height;window.scrollBy({top:t*1,behavior:"smooth"});const a=Math.ceil(s/u);d>=a&&(w.info({title:"",message:"Вы просмотрели всех артистов.",position:"topRight",timeout:4e3,titleColor:"#fff",backgroundColor:"#764191",messageColor:"#fff"}),f(c.loadMoreBtn),c.loadMoreBtn.removeEventListener("click",L))}catch(e){console.error(e)}finally{h()}}function B(e){const s=e.target.closest(".learn-more-btn");if(!s)return;const n=s.dataset.artistId;n&&y(n)}document.addEventListener("DOMContentLoaded",x);c.loadMoreBtn.addEventListener("click",L);c.cardsContainer.addEventListener("click",B);const T=document.querySelector(".swiper-wrapper");async function q(){try{(await C(10,1)).data.forEach(({rating:n,descr:t,name:a})=>{const o=I({rating:n,text:t,user:a});T.appendChild(o)}),O()}catch(e){console.error("Oops...Error",e.message)}}q();function I({rating:e,text:s,user:n}){const t=document.createElement("div");t.classList.add("swiper-slide");const a=Math.round(e);return t.innerHTML=`
-    <div class="feedback-card">
-      <div class="feedback-stars">${N(a)}</div>
-      <p class="feedback-text">"${s}"</p>
-      <p class="feedback-user">${n}</p>
-    </div>
-  `,t}function N(e){let n="";for(let t=1;t<=5;t++){const a=t<=e?"star-filled":"star-outline";n+=`
+  `}function $(e){console.log(e.albumsList)}let d=1;const c={cardsContainer:document.querySelector("#cards-container"),loadMoreBtn:document.querySelector(".load-more-btn")};async function x(){try{g();const{artists:e,totalArtists:s}=await v(d,u);b(e,c.cardsContainer),d*u<s?E(c.loadMoreBtn):f(c.loadMoreBtn)}catch(e){console.error(e)}finally{h()}}async function L(){d++,g();try{const{artists:e,totalArtists:s}=await v(d,u);b(e,c.cardsContainer);const n=c.cardsContainer.lastElementChild;await new Promise(o=>setTimeout(o,100));const t=n.getBoundingClientRect().height;window.scrollBy({top:t*1,behavior:"smooth"});const a=Math.ceil(s/u);d>=a&&(w.info({title:"",message:"Вы просмотрели всех артистов.",position:"topRight",timeout:4e3,titleColor:"#fff",backgroundColor:"#764191",messageColor:"#fff"}),f(c.loadMoreBtn),c.loadMoreBtn.removeEventListener("click",L))}catch(e){console.error(e)}finally{h()}}function B(e){const s=e.target.closest(".learn-more-btn");if(!s)return;const n=s.dataset.artistId;n&&y(n)}document.addEventListener("DOMContentLoaded",x);c.loadMoreBtn.addEventListener("click",L);c.cardsContainer.addEventListener("click",B);const T=document.querySelector(".swiper-wrapper");async function q(){try{(await C(10,1)).data.forEach(({rating:n,descr:t,name:a})=>{const o=N({rating:n,text:t,user:a});T.appendChild(o)}),O()}catch(e){console.error("Oops...Error",e.message)}}q();function I(e){let n="";for(let t=1;t<=5;t++){const a=t<=e?"star-filled":"star-outline";n+=`
       <svg class="star-icon ${a}" width="24" height="24">
         <use href="./img/symbol-defs.svg#${t<=e?"icon-star-filled":"icon-star-outline"}"></use>
       </svg>
-    `}return n}function O(){const e=new k(".feedback-swiper",{loop:!1,navigation:{nextEl:".feedback-button-next",prevEl:".feedback-button-prev"},pagination:{el:".feedback-pagination",clickable:!0,type:"custom",renderCustom:function(s,n,t){const o=t-1;let r="",l="",i="";return n-1===0?r="swiper-pagination-bullet-active":n-1===o?i="swiper-pagination-bullet-active":l="swiper-pagination-bullet-active",`
+    `}return n}function N({rating:e,text:s,user:n}){const t=document.createElement("div");t.classList.add("swiper-slide");const a=Math.round(e);return t.innerHTML=`
+    <div class="feedback-card">
+      <div class="feedback-stars">${I(a)}</div>
+      <p class="feedback-text">"${s}"</p>
+      <p class="feedback-user">${n}</p>
+    </div>
+  `,t}function O(){const e=new k(".feedback-swiper",{loop:!1,navigation:{nextEl:".feedback-button-next",prevEl:".feedback-button-prev"},pagination:{el:".feedback-pagination",clickable:!0,type:"custom",renderCustom:function(s,n,t){const o=t-1;let r="",l="",i="";return n-1===0?r="swiper-pagination-bullet-active":n-1===o?i="swiper-pagination-bullet-active":l="swiper-pagination-bullet-active",`
           <span class="swiper-pagination-bullet ${r}" data-slide-index="0"></span>
           <span class="swiper-pagination-bullet ${l}" data-slide-index="${Math.floor(t/2)}"></span>
           <span class="swiper-pagination-bullet ${i}" data-slide-index="${o}"></span>
