@@ -1,39 +1,23 @@
 name: Build and deploy to GitHub Pages
-
 on:
   push:
     branches: [test]
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code 🛎️
         uses: actions/checkout@v4
-
       - name: Set up Node.js 🔧
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-
-      - name: Clear npm cache
-        run: npm cache clean --force
-
-      - name: Remove old node_modules
-        run: rm -rf node_modules package-lock.json
-
       - name: Install dependencies
-        run: npm install
-
+        run: npm ci
       - name: Build
         run: npm run build
-
-      - name: Save build status
-        run: echo "BUILD_STATUS=success" >> $GITHUB_ENV
-
       - name: Deploy 🚀
-        if: ${{ env.BUILD_STATUS == 'success' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
