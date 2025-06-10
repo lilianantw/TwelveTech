@@ -1,4 +1,4 @@
-import './js/header.js';
+import './js/libraries.js';
 import './js/hero.js';
 import './js/artists.js';
 import './js/about.js';
