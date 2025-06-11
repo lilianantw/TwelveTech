@@ -18,6 +18,9 @@
     display: flex;
     flex-direction: column;
   }
+    .about-us-section {
+  padding: 64px 0px;}
+  
   .about-img-container {
     width: 280px;
     height: 168px;
@@ -38,8 +41,6 @@
     line-height: 1.5;
     color: #fff;
   }
-  .about-us-section {
-  padding: 64px 0px;}
   
   .logo-icon {
     display: block;
@@ -95,9 +96,10 @@
     width: 80px;
     height: 80px;
   }
-}
+
 .about-us-section {
   padding: 112px 0;
+}
 }
 
 img {
