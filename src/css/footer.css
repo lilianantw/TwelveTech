@@ -1,9 +1,8 @@
-
 /* footer.css: Стили для блока Footer. Заполняется ответственным разработчиком. */
 
 @media only screen and (min-width: 320px) {
-  .footer-section {
-    padding: 48px 0;
+  .footer-container {
+    padding: 48px 20px;
   }
 
   .footer-logo-wrapper {
@@ -39,16 +38,16 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 1.5;
+    line-height: 1.5; /* 24px */
   }
-
-  .footer-nav-link:hover,
+   .footer-nav-link:hover,
   .footer-nav-link:focus {
     color: #764191;
   }
 
   .footer-nav-link:active {
     color: #fff;
+
   }
 
   .footer-nav-item:hover,
@@ -95,13 +94,13 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.5; /* 24px */
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .footer-section {
-    padding: 80px 0;
+  .footer-container {
+    padding: 80px 32px;
   }
 
   .footer-logo {
