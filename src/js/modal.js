@@ -128,8 +128,6 @@ function generateArtistAlbums(data) {
 
   return data.albumsList
     .map(album => {
-      
-      console.log(album.strAlbum);
       let res = `
           <li class="album-item">
             <p class="album-name">${album.strAlbum}</p>
@@ -152,7 +150,6 @@ function generateArtistAlbums(data) {
 
 function generateAlbumTracks(data) {
   return data.map(track => {
-    console.log(track);
     const link = track.movie ? `
     <a href="${track.movie}" target="blank">
       <svg class="modal-youtube-icon" width="24" height="24">
