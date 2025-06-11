@@ -72,9 +72,11 @@ a {
 
 .band-thumbnail {
   display: block;
-  width: 288px;
+  width: 100%;
   height: 177px;
   margin-bottom: 32px;
+  object-fit: cover;
+  object-position: center 15%;
 }
 
 .modal-band-overview {
@@ -197,8 +199,7 @@ a {
   }
 
   .band-thumbnail {
-    width: 654px;
-    height: 402px;
+    height: 432px;
   }
 
   .band-years,
@@ -242,8 +243,7 @@ a {
   }
 
   .band-thumbnail {
-    width: 576px;
-    height: 354px;
+    height: 393px;
     margin-right: 32px;
   }
 
