@@ -11,10 +11,6 @@
 }
 
 
-
-.about-us-section {
-  padding: 64px 16px;}
-
 /* 1. Мобильная версия (от 320px) */
 @media only screen and (min-width: 320px) {
   /* .about-us-container уже настроен выше */
@@ -42,6 +38,9 @@
     line-height: 1.5;
     color: #fff;
   }
+  .about-us-section {
+  padding: 64px 0px;}
+  
   .logo-icon {
     display: block;
     margin-bottom: 48px;
