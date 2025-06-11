@@ -75,7 +75,6 @@
     max-width: 1312px; /* ширина контейнера для десктопа */
     flex-direction: row; /* текст + картинка в строку */
     gap: 32px;
-    padding: 112px 0;
     background: #060307;
   }
   .about-text-container {
