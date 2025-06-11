@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="/TwelveTech/index.js"></script>
     <link rel="modulepreload" crossorigin href="/TwelveTech/assets/vendor-rzQNFhEO.js">
     <link rel="stylesheet" crossorigin href="/TwelveTech/assets/vendor-CL2FY5vN.css">
-    <link rel="stylesheet" crossorigin href="/TwelveTech/assets/index-C4XabWtN.css">
+    <link rel="stylesheet" crossorigin href="/TwelveTech/assets/index-C_aE9zt6.css">
   </head>
   <body>
     <main>
@@ -202,11 +202,34 @@
       </svg>
     </button>
 
-    <div class="modal-content" id="modal-content"></div>
+    <div class="modal-content" id="modal-content">
+      <img class="band-thumbnail" src="/img/sample.jpg" alt="Band" />
+      <h2 class="band-title">Band Name</h2>
+      <div class="modal-band-overview">
+        <h3 class="modal-band-subtitle">Overview</h3>
+        <p class="modal-band-text">
+          This is a sample band description text. It stays centered and never
+          stretches beyond its container.
+        </p>
+      </div>
+    </div>
 
     <div class="modal-albums-content">
       <h3 class="band-albums-title">Albums</h3>
-      <ul class="band-albums-list" id="band-albums-list-container"></ul>
+      <ul class="band-albums-list" id="band-albums-list-container">
+        <li class="album-item">
+          <h4 class="album-name">Album Title</h4>
+          <div class="track-info">
+            <span class="track-name">Track 1</span>
+            <span class="track-duration">3:25</span>
+            <span class="track-link">
+              <svg class="modal-youtube-icon" width="12" height="12">
+                <use href="/TwelveTech/img/symbol-defs.svg#icon-youtube"></use>
+              </svg>
+            </span>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
