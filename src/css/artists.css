@@ -15,7 +15,7 @@
 }
 
 /* 1. Заголовки */
-h2 {
+.title-art {
   text-align: left;
   padding-top: 64px;
   margin-bottom: 16px;
@@ -160,7 +160,6 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 64px;
   border: none;
   gap: 12px;
   cursor: pointer;
@@ -258,7 +257,7 @@ body {
     max-width: 1312px;
   }
 
-  h2 {
+ .title-art {
     margin-top: 112px;
   }
 
@@ -279,7 +278,5 @@ body {
 
   .load-more-btn {
     width: 170px;
-    margin: 0 auto;
-    padding-bottom: 112px;
   }
 }
