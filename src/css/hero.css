@@ -4,6 +4,7 @@
   background-color: #23132b;
   margin: 0 auto;
   position: relative;
+  padding-top: 64px;
 }
 
 .hero-section::before,
@@ -28,14 +29,10 @@
   background: linear-gradient(to top, rgba(6, 3, 7, 1), rgba(6, 3, 7, 0));
 }
 
-.hero-container {
-  padding: 64px 16px 0px;
-}
 
 .main-inner {
   margin: 0 auto;
   max-width: 280px;
-  margin-bottom: 62px;
 }
 
 .main-title {
@@ -45,7 +42,6 @@
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin-bottom: 20px;
-  padding-top: 64px;
 }
 
 .main-text {
@@ -65,7 +61,6 @@
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   border: none;
   border-radius: 12px;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -103,6 +98,7 @@
   height: 385px;
   background-image: url('../img/hero/hero-mobile.png');
   background-size: contain;
+  margin-top: 64px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -124,22 +120,24 @@
     height: 137px;
   }
 
-  .hero-container {
-    padding: 32px 32px 0;
-  }
+ .hero-section {
+  padding: 64px 0;
+ }
 
   .main-inner {
     max-width: 704px;
-    margin-bottom: 32px;
   }
 
+    .main-images {
+margin-top: 32px;
+    }
   .main-title {
     max-width: 624px;
     margin-bottom: 24px;
   }
 
   .main-text {
-    font-size: 20px;
+    font-size: 32px;
   }
 
   .main-button {
@@ -168,8 +166,8 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    padding: 0px 64px;
   }
+
 
   .main-inner {
     max-width: 640px;
