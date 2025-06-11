@@ -14,7 +14,6 @@ a {
   pointer-events: none;
   transition: opacity 0.2s linear, visibility 0.2s linear;
   width: 100%;
-  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,22 +60,15 @@ a {
 .modal-albums-content {
   padding: 52px 8px;
   height: auto;
-  /* width: auto;
-  max-width: 100%; Чтобы не вылезала за границы на мелких экранах */
   font-family: 'Epilogue', sans-serif;
-  /* max-width: 320px;
-  width: 100%; */
-  /* margin: o auto; */
   margin-left: auto;
   margin-right: auto;
-  max-width: 100%; /* ограничение на случай маленьких экранов
-  /*height: auto; */
-  /* object-fit: contain;  */
+  max-width: 100%;
 }
 
 .band-title {
   font-size: 20px;
-  letter-spacing: -1%;
+  letter-spacing: -0.01em;
   text-align: center;
   font-weight: 700;
   color: #fff;
@@ -86,17 +78,6 @@ a {
 
 .band-thumbnail {
   display: block;
-  /* width: 100%; */
-  /* height: 177px; */
-  /* margin-bottom: 32px; */
-  /* object-fit: cover; */
-  /* object-position: center 15%; */
-  /* ******* */
-  /* margin-left: auto;
-  margin-right: auto;
-  max-width: 100%; /* ограничение на случай маленьких экранов */
-  /*height: auto; */
-  /* object-fit: contain;  */
 }
 
 .modal-band-overview {
@@ -106,7 +87,7 @@ a {
 .modal-band-subtitle {
   font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0%;
+  letter-spacing: 0.01em;
   line-height: 1.5;
   color: #fff;
 }
@@ -114,14 +95,14 @@ a {
 .modal-band-text {
   font-size: 18px;
   font-weight: 400;
-  letter-spacing: 0%;
+  letter-spacing: 0.01em;
   line-height: 1.5;
   color: #fff;
 }
 
 .band-albums-title {
   font-size: 24px;
-  letter-spacing: -1%;
+  letter-spacing: -0.01em;
   line-height: 1.3;
   color: #fff;
   font-weight: 700;
@@ -148,7 +129,7 @@ a {
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   line-height: 1.5;
-  letter-spacing: 0%;
+  letter-spacing: 0.01em;
   font-size: 16px;
   padding-left: 8px;
 }
@@ -160,7 +141,7 @@ a {
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   line-height: 1.5;
-  letter-spacing: 0%;
+  letter-spacing: 0.01em;
   font-size: 8px;
   padding: 4px 4px 4px 12px;
   background-color: #343335;
@@ -192,7 +173,7 @@ a {
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
   font-size: 12px;
-  letter-spacing: 0%;
+  letter-spacing: 0.01em;
   line-height: 1.5;
   border-radius: 8px;
   padding: 8px 8px 8px 12px;
@@ -219,7 +200,7 @@ a {
   }
 
   .modal-close-btn {
-    right: 48;
+    right: 48px;
   }
 
   .band-title {
@@ -262,13 +243,14 @@ a {
     margin: 0 auto;
     max-width: 1312px;
   }
+
   .modal-content,
   .modal-albums-content {
     padding: 64px 64px;
   }
 
   .modal-close-btn {
-    right: 16;
+    right: 16px;
   }
 
   .wrapper {
