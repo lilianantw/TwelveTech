@@ -83,9 +83,9 @@ body {
   gap: 24px;
   border-radius: 16px;
 }
-.artist-card:not(:last-child) {
+/* .artist-card:not(:last-child) {
   margin-bottom: 32px;
-}
+} */
 
 .artist-photo {
   object-fit: cover;

@@ -14,10 +14,12 @@ a {
   pointer-events: none;
   transition: opacity 0.2s linear, visibility 0.2s linear;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  max-width: 288px;
 }
 
 .is-open {
@@ -35,6 +37,7 @@ a {
   max-height: 90vh;
   overflow-y: auto;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .no-scroll {
@@ -57,7 +60,18 @@ a {
 .modal-content,
 .modal-albums-content {
   padding: 52px 8px;
+  height: auto;
+  /* width: auto;
+  max-width: 100%; Чтобы не вылезала за границы на мелких экранах */
   font-family: 'Epilogue', sans-serif;
+  /* max-width: 320px;
+  width: 100%; */
+  /* margin: o auto; */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%; /* ограничение на случай маленьких экранов
+  /*height: auto; */
+  /* object-fit: contain;  */
 }
 
 .band-title {
@@ -72,11 +86,17 @@ a {
 
 .band-thumbnail {
   display: block;
-  width: 100%;
-  height: 177px;
-  margin-bottom: 32px;
-  object-fit: cover;
-  object-position: center 15%;
+  /* width: 100%; */
+  /* height: 177px; */
+  /* margin-bottom: 32px; */
+  /* object-fit: cover; */
+  /* object-position: center 15%; */
+  /* ******* */
+  /* margin-left: auto;
+  margin-right: auto;
+  max-width: 100%; /* ограничение на случай маленьких экранов */
+  /*height: auto; */
+  /* object-fit: contain;  */
 }
 
 .modal-band-overview {
@@ -118,7 +138,8 @@ a {
 .album-item {
   width: 272px;
   padding: 14px 11px;
-  background-color: #1E1C1F;
+  margin: 0 auto;
+  background-color: #1e1c1f;
   border-radius: 16px;
 }
 
@@ -129,11 +150,12 @@ a {
   line-height: 1.5;
   letter-spacing: 0%;
   font-size: 16px;
+  padding-left: 8px;
 }
 
 .track-info {
   display: flex;
-  color: #FFF;
+  color: #fff;
   height: 20px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
@@ -181,10 +203,16 @@ a {
 }
 
 .modal-youtube-icon {
-  fill: #FFF;
+  fill: #fff;
 }
 
 @media screen and (min-width: 768px) {
+  .backdrop {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 720px;
+  }
+
   .modal-content,
   .modal-albums-content {
     padding: 64px 24px;
@@ -229,6 +257,11 @@ a {
 }
 
 @media screen and (min-width: 1440px) {
+  .backdrop {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1312px;
+  }
   .modal-content,
   .modal-albums-content {
     padding: 64px 64px;
