@@ -1,11 +1,12 @@
+
 /* about.css: Стили для блока About. Заполняется ответственным разработчиком. */
 
 /* 0. Универсальный контейнер для секции About */
 .about-us-container {
   width: 100%;
   margin: 0 auto;
-  padding: 64px 16px; /* вертикальные паддинги для мобилок + горизонтальные */
-  max-width: 288px; /* по умолчанию мобильная ширина */
+  padding: 64px 16px;
+  max-width: 288px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -13,7 +14,9 @@
 
 /* 1. Мобильная версия (от 320px) */
 @media only screen and (min-width: 320px) {
-  /* .about-us-container уже настроен выше */
+  .about-us-section {
+    padding: 64px 0;
+  }
   .about-text-container {
     display: flex;
     flex-direction: column;
@@ -21,7 +24,7 @@
   .about-img-container {
     width: 280px;
     height: 168px;
-    margin: 48px auto 20px; /* центрирование картинки + отступ сверху/снизу */
+    margin: 48px auto 20px;
     box-sizing: border-box;
   }
   .about-title {
@@ -50,8 +53,8 @@
 /* 2. Планшет (от 768px) */
 @media only screen and (min-width: 768px) {
   .about-us-container {
-    max-width: 704px; /* расширяем контейнер для планшета */
-    padding: 64px 0; /* убираем горизонтальные паддинги, блок центрируется контейнером страницы */
+    max-width: 704px;
+    padding: 64px 0;
   }
   .about-img-container {
     width: 100%;
@@ -69,9 +72,12 @@
 
 /* 3. Десктоп (от 1440px) */
 @media only screen and (min-width: 1440px) {
+  .about-us-section {
+    padding: 112px 0;
+  }
   .about-us-container {
-    max-width: 1312px; /* ширина контейнера для десктопа */
-    flex-direction: row; /* текст + картинка в строку */
+    max-width: 1312px;
+    flex-direction: row;
     gap: 32px;
     padding: 112px 0;
     background: #060307;

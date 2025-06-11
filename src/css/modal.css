@@ -1,3 +1,4 @@
+
 a {
   margin: 0;
   padding: 0;
@@ -39,6 +40,7 @@ a {
   max-height: 90vh;
   overflow-y: auto;
   box-sizing: border-box;
+  padding: 52px 8px;
 }
 
 .no-scroll {
@@ -60,7 +62,6 @@ a {
 
 .modal-content,
 .modal-albums-content {
-  padding: 52px 8px;
   font-family: 'Epilogue', sans-serif;
 }
 
@@ -167,7 +168,6 @@ a {
   align-items: center;
 }
 
-
 .track-link {
   width: 35px;
   display: flex;
@@ -194,9 +194,7 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-
-  .modal-content,
-  .modal-albums-content {
+  .modal-artist {
     padding: 64px 24px;
   }
 
@@ -235,13 +233,9 @@ a {
 }
 
 @media screen and (min-width: 1440px) {
-
-  .modal-content,
-  .modal-albums-content {
+  .modal-artist {
     padding: 64px 64px;
   }
-
-
 
   .wrapper {
     display: flex;

@@ -1,14 +1,14 @@
-.page-header {
-position: fixed;
-top: 0;
-left: 0;
-height: 64px;
-width: 100%;
-z-index: 1000;
-background-color: #060307;
-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
 
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 64px;
+  width: 100%;
+  z-index: 1000;
+  background-color: #060307;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
 
 .header-container {
   position: absolute;
@@ -29,7 +29,7 @@ box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  text-align: center;
 }
 
 .header-nav-list {
@@ -54,6 +54,8 @@ box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 48px;
   height: 48px;
   padding: 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -85,11 +87,11 @@ box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
   .header-nav {
     width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 640px;
-      margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   .icon-logo {
@@ -111,9 +113,9 @@ box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
   .header-nav-link {
     font-weight: 400;
-      font-size: 18px;
-      line-height: 1.5;
-      letter-spacing: 0;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0;
     text-align: center;
     transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -133,9 +135,8 @@ box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     width: 1440px;
     background-color: transparent;
   }
-    .header-nav {
-      max-width: 1312px;
-    }
+
+  .header-nav {
+    max-width: 1312px;
+  }
 }
-
-
