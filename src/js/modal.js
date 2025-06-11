@@ -70,8 +70,13 @@ function generateArtistMarkup(data) {
     strBiographyEN: biography,
     strCountry: foundationPlace,
     strGender: sex,
+    genres,
   } = data;
 
+ const genresMarkup = genres.length
+  ? genres.map(genre => `<li class="genre-tag">${genre}</li>`).join("")
+   : "";
+  
   const resulYear = diedYear === null ? 'Present' : diedYear;
   return `
   <h3 class="band-title">${bandName}</h3>
@@ -116,6 +121,10 @@ function generateArtistMarkup(data) {
           <li class="modal-band-text">${biography}</li>
         </ul>
       </div>
+    
+       <div class="band-genres-container">
+        <ul class="band-genres-list">${genresMarkup}</ul>
+      </div>
     </div>
   </div>
   `;
@@ -153,7 +162,7 @@ function generateAlbumTracks(data) {
     const link = track.movie ? `
     <a href="${track.movie}" target="blank">
       <svg class="modal-youtube-icon" width="24" height="24">
-        <use href="/img/symbol-defs.svg#icon-youtube"></use>
+        <use href="./img/symbol-defs.svg#icon-youtube"></use>
       </svg>
     </a>
     ` : '-';
