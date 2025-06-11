@@ -36,6 +36,7 @@ a {
   border-radius: 8px;
   max-width: 2560px;
   width: 95%;
+  padding: 52px 8px;
   max-height: 90vh;
   overflow-y: auto;
   box-sizing: border-box;
@@ -60,7 +61,6 @@ a {
 
 .modal-content,
 .modal-albums-content {
-  padding: 52px 8px;
   font-family: 'Epilogue', sans-serif;
 }
 
@@ -195,8 +195,7 @@ a {
 
 @media screen and (min-width: 768px) {
 
-  .modal-content,
-  .modal-albums-content {
+  .modal-artist {
     padding: 64px 24px;
   }
 
@@ -236,8 +235,7 @@ a {
 
 @media screen and (min-width: 1440px) {
 
-  .modal-content,
-  .modal-albums-content {
+.modal-artist {
     padding: 64px 64px;
   }
 
