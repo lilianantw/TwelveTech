@@ -137,6 +137,7 @@ body {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  line-clamp: 2;
   text-overflow: ellipsis;
 }
 
@@ -257,7 +258,7 @@ body {
     max-width: 1312px;
   }
 
- .title-art {
+  .title-art {
     margin-top: 112px;
   }
 
