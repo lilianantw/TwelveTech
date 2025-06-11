@@ -82,7 +82,7 @@ import{a as m,i as k,S as w}from"./assets/vendor-rzQNFhEO.js";(function(){const 
       <p class="feedback-user">${n}</p>
     </div>
   `,s}function P(e){let n="";for(let s=1;s<=5;s++){const a=s<=e?"star-filled":"star-outline";n+=`
-      <svg class="star-icon ${a}" width="24" height="24">
+     <svg class="star-icon ${a}" width="24" height="24">
         <use href="img/symbol-defs.svg#${s<=e?"icon-star-filled":"icon-star-outline"}"></use>
       </svg>
     `}return n}function F(){const e=new w(".feedback-swiper",{loop:!1,navigation:{nextEl:".feedback-button-next",prevEl:".feedback-button-prev"},pagination:{el:".feedback-pagination",clickable:!0,type:"custom",renderCustom:function(t,n,s){const o=s-1;let r="",l="",i="";return n-1===0?r="swiper-pagination-bullet-active":n-1===o?i="swiper-pagination-bullet-active":l="swiper-pagination-bullet-active",`
