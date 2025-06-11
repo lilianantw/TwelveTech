@@ -128,12 +128,55 @@ function generateArtistAlbums(data) {
 
   return data.albumsList
     .map(album => {
-      return `
+      
+      console.log(album.strAlbum);
+      let res = `
           <li class="album-item">
-            <img class="album-thumb" src="${album.strAlbumThumb}" alt="${album.strAlbum}" />
-            <p class="album-title">${album.strAlbum}</p>
-          </li>
+            <p class="album-name">${album.strAlbum}</p>
         `;
-    })
-    .join('');
+      
+      res += `
+          <ul class="tracks-list">
+            <li class="track-info">
+              <div class="track-name">Track</div>
+              <div class="track-duration">Time</div>
+              <div class="track-link">Link</div>
+            </li>
+            ${generateAlbumTracks(album.tracks)}
+          </ul>
+        </li>
+      `;
+      return res;
+    }).join('');
+}
+
+function generateAlbumTracks(data) {
+  return data.map(track => {
+    console.log(track);
+    const link = track.movie ? `
+    <a href="${track.movie}" target="blank">
+      <svg class="modal-youtube-icon" width="24" height="24">
+        <use href="/img/symbol-defs.svg#icon-youtube"></use>
+      </svg>
+    </a>
+    ` : '-';
+    const time = convertToSeconds(track.intDuration);
+    
+    return `
+    <li class="track-item">
+      <div class="track-name">${track.strTrack}</div>
+      <div class="track-duration">${time}</div>
+      <div class="track-link">${link}</div>
+    </li>`
+  }).join('')
+}
+
+function convertToSeconds(ms) {
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  const formattedSeconds = seconds.toString().padStart(2, '0');
+
+  return `${minutes}:${formattedSeconds}`;
 }

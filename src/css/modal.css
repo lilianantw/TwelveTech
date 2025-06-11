@@ -1,3 +1,8 @@
+a {
+  margin: 0;
+  padding: 0;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -101,6 +106,82 @@
   margin-bottom: 16px;
 }
 
+.band-albums-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.album-item {
+  width: 272px;
+  padding: 14px 11px;
+  background-color: #1E1C1F;
+  border-radius: 16px;
+}
+
+.album-name {
+  margin-bottom: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  font-size: 16px;
+}
+
+.track-info {
+  display: flex;
+  color: #FFF;
+  height: 20px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  font-size: 8px;
+  padding: 4px 4px 4px 12px;
+  background-color: #343335;
+  border-radius: 8px;
+}
+
+.track-name {
+  width: 97px;
+  display: flex;
+  align-items: center;
+}
+
+.track-duration {
+  width: 102px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-link {
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-item {
+  display: flex;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0%;
+  line-height: 1.5;
+  border-radius: 8px;
+  padding: 8px 8px 8px 12px;
+}
+
+.track-item:nth-child(2n + 1) {
+  background-color: #343335;
+}
+
+.modal-youtube-icon {
+  fill: #FFF;
+}
+
 @media screen and (min-width: 768px) {
   .modal-content,
   .modal-albums-content {
@@ -140,6 +221,10 @@
   .modal-band-overview {
     margin-bottom: 24px;
   }
+
+  .band-albums-list {
+    flex-direction: row;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -157,7 +242,6 @@
   }
 
   .band-thumbnail {
-    /* display: inline-block; */
     width: 576px;
     height: 354px;
     margin-right: 32px;
@@ -171,29 +255,4 @@
   .modal-band-history {
     margin-bottom: 24px;
   }
-}
-.band-albums-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 0;
-  list-style: none;
-}
-
-.album-item {
-  width: 120px;
-  text-align: center;
-}
-
-.album-thumb {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.album-title {
-  margin-top: 8px;
-  font-size: 14px;
-  color: #fff;
 }
