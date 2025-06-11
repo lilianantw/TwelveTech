@@ -1,10 +1,7 @@
 .feedback-section {
     background-color: black;
     margin: 0 auto;
-}
-
-.feedback-container {
-    padding: 64px 16px;
+    padding: 64px 0;
 }
 
 .feedback-button-prev,
@@ -151,6 +148,9 @@
 }
 
 @media screen and (min-width: 1440px) {
+    .feedback-section {
+        padding: 112px 0;
+    }
     .feedback-text {
         font-size: 32px;
         line-height: 1.3;

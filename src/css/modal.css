@@ -30,6 +30,7 @@
   max-height: 90vh;
   overflow-y: auto;
   box-sizing: border-box;
+  padding: 52px 8px;
 }
 
 .no-scroll {
@@ -51,7 +52,6 @@
 
 .modal-content, 
 .modal-albums-content {
-  padding: 52px 8px;
   font-family: 'Epilogue', sans-serif;
 }
 
@@ -102,8 +102,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .modal-content,
-  .modal-albums-content {
+  .modal-artist {
     padding: 64px 24px;
   }
 
@@ -143,8 +142,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .modal-content,
-  .modal-albums-content {
+  .modal-artist {
     padding: 64px 64px;
   }
 

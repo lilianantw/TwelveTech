@@ -1,11 +1,12 @@
 /* about.css: Стили для блока About. Заполняется ответственным разработчиком. */
 
 @media only screen and (min-width: 320px) {
+  .about-us-section {
+    padding: 64px 0;
+  }
   .about-us-container {
     display: flex;
     flex-direction: column;
-    padding-top: 64px;
-    padding-bottom: 64px;
   }
 
   .about-text-container {
@@ -62,13 +63,14 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .about-us-section {
+    padding: 112px 0;
+  }
   .about-us-container {
     display: flex;
     flex-direction: row;
     gap: 32px;
     background: #060307;
-    padding-top: 112px;
-    padding-bottom: 112px;
   }
 
   .about-text-container {

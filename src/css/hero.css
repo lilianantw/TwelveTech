@@ -5,6 +5,7 @@
     background-color: #23132b;
     margin: 0 auto;
     position: relative;
+    padding-top: 64px;
 }
 
 .hero-section::before,
@@ -29,14 +30,9 @@
     background: linear-gradient(to top, rgba(6, 3, 7, 1), rgba(6, 3, 7, 0));
 }
 
-.hero-container {
-    padding: 64px 20px 0;
-}
-
 .main-inner {
     margin: 0 auto;
     max-width: 280px;
-    margin-bottom: 64px;
 }
 
 .main-title {
@@ -73,6 +69,7 @@
     align-items: center;
     flex-wrap: nowrap;
     margin: 0 auto;
+
 }
 
 .main-button:hover,
@@ -107,6 +104,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    margin-top: 64px;
 }
 
 .main-box {
@@ -205,6 +203,7 @@
 @media screen and (min-width: 768px) {
 
 .hero-section {
+    padding-top: 32px;
 }
 
 .hero-section::before {
@@ -213,10 +212,6 @@
 
 .hero-section::after {
     height: 137px;
-}
-
-.hero-container {
-    padding: 32px 32px 0;
 }
 
 .main-inner {
@@ -240,6 +235,7 @@
 
 .main-wraper {
     gap: 18px;
+    margin-top: 32px;
 }
 
 .main-box {
@@ -321,6 +317,7 @@
 @media screen and (min-width: 1440px) {
 
 .hero-section {
+    padding: 0;
 }
 
 .hero-section::before,
@@ -339,7 +336,6 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    padding: 0px 64px;
 }
 
 .main-inner {

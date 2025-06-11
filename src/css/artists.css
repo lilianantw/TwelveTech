@@ -11,6 +11,10 @@ body {
   color: #fff;
 }
 
+.artists-section {
+  padding: 64px 0;
+}
+
 .artists-container {
   box-sizing: border-box;
 }
@@ -25,7 +29,6 @@ h1 {
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
-  margin-top: 64px;
   margin-bottom: 16px;
 }
 
@@ -306,6 +309,9 @@ h2,
 }
 
 @media screen and (min-width: 1440px) {
+  .artists-section {
+    padding: 112px 0;
+  }
   .container {
     max-width: 1440px;
   }
