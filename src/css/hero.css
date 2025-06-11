@@ -141,6 +141,7 @@
 
   .main-images {
     height: 632px;
+    margin-top: 32px;
     background-image: url('../img/hero/hero-table.png');
   }
 
@@ -184,6 +185,7 @@
 
   .main-images {
     height: 900px;
+    margin-top: 0;
     background-image: url('../img/hero/hero-desctop.png');
   }
 
