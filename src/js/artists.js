@@ -16,7 +16,7 @@ const refs = {
   loadMoreBtn: document.querySelector('.load-more-btn'),
 };
 
-// ===== Инициализация страницы =====
+// ===== ІНІЦІАЛІЗАЦІЯ СТОРІНКИ =====
 async function initArtists() {
   try {
     showLoader();
@@ -36,8 +36,9 @@ async function initArtists() {
   }
 }
 
-// ===== Обработка клика "Загрузить ещё" =====
-async function onLoadMoreBtnClick() {
+// ===== ОПРАЦЮВАННЯ КЛІКУ "ЗАВАНТАЖИТИ ЩЕ" =====
+async function onLoadMoreBtnClick(event) {
+  event.target.blur();
   currentPage++;
   showLoader();
 
@@ -45,18 +46,16 @@ async function onLoadMoreBtnClick() {
     const { artists, totalArtists } = await fetchArtists(currentPage, LIMIT);
     renderArtists(artists, refs.cardsContainer);
 
-    // Прокрутка до новых карточек
     const firstNewCard = refs.cardsContainer.lastElementChild;
     await new Promise(resolve => setTimeout(resolve, 100));
     const cardHeight = firstNewCard.getBoundingClientRect().height;
     window.scrollBy({ top: cardHeight * 1, behavior: 'smooth' });
 
-    // Проверка на конец списка
     const totalPages = Math.ceil(totalArtists / LIMIT);
     if (currentPage >= totalPages) {
       iziToast.info({
         title: '',
-        message: "Вы просмотрели всех артистов.",
+        message: 'Ви, передивились всіх артистів.',
         position: 'topRight',
         timeout: 4000,
         titleColor: '#fff',
@@ -73,7 +72,7 @@ async function onLoadMoreBtnClick() {
   }
 }
 
-// ===== Обработка кнопки "Узнать больше" =====
+// ===== ОПРАЦЮВАННЯ КНОПКИ "ДІЗНАТИСЬ БІЛЬШЕ" =====
 function onArtistCardClick(event) {
   const learnMoreBtn = event.target.closest('.learn-more-btn');
   if (!learnMoreBtn) return;
@@ -81,11 +80,9 @@ function onArtistCardClick(event) {
   const artistId = learnMoreBtn.dataset.artistId;
   if (!artistId) return;
 
-  openArtistModal(artistId); // ← сюда подключить модалку, если будет нужно
+  openArtistModal(artistId);
 }
 
-// ===== Запуск при загрузке страницы =====
 document.addEventListener('DOMContentLoaded', initArtists);
 refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 refs.cardsContainer.addEventListener('click', onArtistCardClick);
-

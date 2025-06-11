@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modalBackdrop.classList.remove('is-open');
     document.body.classList.remove('no-scroll');
     modalContent.innerHTML = '';
+    const albumsList = modalBackdrop.querySelector(
+      '#band-albums-list-container'
+    );
+    if (albumsList) albumsList.innerHTML = '';
   }
 
   closeModalBtn.addEventListener('click', closeArtistModal);
@@ -33,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 export async function openArtistModal(artistId) {
   const modalBackdrop = document.getElementById('backdrop');
   const modalContent = modalBackdrop?.querySelector('.modal-content');
-  const bandAlbumsListContent = modalBackdrop?.querySelector('.band-albums-list');
+  const bandAlbumsListContent =
+    modalBackdrop?.querySelector('.band-albums-list');
 
   if (!modalBackdrop || !modalContent) return;
 
@@ -53,7 +58,6 @@ export async function openArtistModal(artistId) {
   } catch (err) {
     modalContent.innerHTML = '<p>Error loading artist data.</p>';
   }
-
 }
 
 function generateArtistMarkup(data) {
@@ -66,9 +70,14 @@ function generateArtistMarkup(data) {
     strBiographyEN: biography,
     strCountry: foundationPlace,
     strGender: sex,
+    genres,
   } = data;
 
-  const resulYear = (diedYear === null) ? "Present" : diedYear;
+ const genresMarkup = genres.length
+  ? genres.map(genre => `<li class="genre-tag">${genre}</li>`).join("")
+   : "";
+  
+  const resulYear = diedYear === null ? 'Present' : diedYear;
   return `
   <h3 class="band-title">${bandName}</h3>
   
@@ -112,11 +121,68 @@ function generateArtistMarkup(data) {
           <li class="modal-band-text">${biography}</li>
         </ul>
       </div>
+    
+       <div class="band-genres-container">
+        <ul class="band-genres-list">${genresMarkup}</ul>
+      </div>
     </div>
   </div>
-  `
+  `;
 }
 
 function generateArtistAlbums(data) {
-  console.log(data.albumsList);
+  if (!data.albumsList || data.albumsList.length === 0) {
+    return '<li class="no-albums">No albums found.</li>';
+  }
+
+  return data.albumsList
+    .map(album => {
+      let res = `
+          <li class="album-item">
+            <p class="album-name">${album.strAlbum}</p>
+        `;
+      
+      res += `
+          <ul class="tracks-list">
+            <li class="track-info">
+              <div class="track-name">Track</div>
+              <div class="track-duration">Time</div>
+              <div class="track-link">Link</div>
+            </li>
+            ${generateAlbumTracks(album.tracks)}
+          </ul>
+        </li>
+      `;
+      return res;
+    }).join('');
+}
+
+function generateAlbumTracks(data) {
+  return data.map(track => {
+    const link = track.movie ? `
+    <a href="${track.movie}" target="blank">
+      <svg class="modal-youtube-icon" width="24" height="24">
+        <use href="./img/symbol-defs.svg#icon-youtube"></use>
+      </svg>
+    </a>
+    ` : '-';
+    const time = convertToSeconds(track.intDuration);
+    
+    return `
+    <li class="track-item">
+      <div class="track-name">${track.strTrack}</div>
+      <div class="track-duration">${time}</div>
+      <div class="track-link">${link}</div>
+    </li>`
+  }).join('')
+}
+
+function convertToSeconds(ms) {
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  const formattedSeconds = seconds.toString().padStart(2, '0');
+
+  return `${minutes}:${formattedSeconds}`;
 }

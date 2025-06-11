@@ -39,10 +39,12 @@ function renderStars(count) {
   const max = 5;
   let starsHTML = '';
   for (let i = 1; i <= max; i++) {
-    const starClass = i <= count ? 'star-filled': 'star-outline';
+    const starClass = i <= count ? 'star-filled' : 'star-outline';
     starsHTML += `
-      <svg class="star-icon ${starClass}" width="24" height="24">
-        <use href="../img/symbol-defs.svg#${i <= count ? 'icon-star-filled' : 'icon-star-outline'}"></use>
+     <svg class="star-icon ${starClass}" width="24" height="24">
+        <use href="img/symbol-defs.svg#${
+          i <= count ? 'icon-star-filled' : 'icon-star-outline'
+        }"></use>
       </svg>
     `;
   }
@@ -78,14 +80,18 @@ function initSwiper() {
 
         return `
           <span class="swiper-pagination-bullet ${leftBulletActive}" data-slide-index="${firstSlideIndex}"></span>
-          <span class="swiper-pagination-bullet ${middleBulletActive}" data-slide-index="${Math.floor(total / 2)}"></span>
+          <span class="swiper-pagination-bullet ${middleBulletActive}" data-slide-index="${Math.floor(
+          total / 2
+        )}"></span>
           <span class="swiper-pagination-bullet ${rightBulletActive}" data-slide-index="${lastSlideIndex}"></span>
         `;
       },
     },
     on: {
       paginationUpdate: function () {
-        const bullets = document.querySelectorAll('.feedback-pagination .swiper-pagination-bullet');
+        const bullets = document.querySelectorAll(
+          '.feedback-pagination .swiper-pagination-bullet'
+        );
         bullets.forEach(bullet => {
           bullet.onclick = () => {
             const index = parseInt(bullet.getAttribute('data-slide-index'));
