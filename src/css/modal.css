@@ -5,20 +5,21 @@ a {
 
 .backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.25);
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s linear, visibility 0.2s linear;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 288px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-sizing: border-box;
 }
 
 .is-open {
@@ -28,15 +29,18 @@ a {
 }
 
 .modal-artist {
-  position: relative;
-  background-color: #060307;
-  border-radius: 8px;
-  max-width: 2560px;
-  width: 95%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-sizing: border-box;
-  margin: 0 auto;
+  background-color: rgba(6, 3, 7, 1);
+    padding: 64px;
+    border-radius: 8px;
+    max-width: 1184px;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    padding-top: 60px;
+
 }
 
 .no-scroll {
@@ -45,12 +49,20 @@ a {
 }
 
 .modal-close-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background-color: inherit;
+position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
   border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1002;
 }
+
 
 .modal-close-svg {
   fill: #fff;
@@ -61,14 +73,21 @@ a {
   padding: 52px 8px;
   height: auto;
   font-family: 'Epilogue', sans-serif;
-  margin-left: auto;
-  margin-right: auto;
   max-width: 100%;
 }
 
+.modal-content{
+width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+}
+
 .band-title {
+font-family: "Epilogue", sans-serif;
+  font-weight: 700;
   font-size: 20px;
-  letter-spacing: -0.01em;
   text-align: center;
   font-weight: 700;
   color: #fff;
@@ -78,6 +97,7 @@ a {
 
 .band-thumbnail {
   display: block;
+  border-radius: 16px;
 }
 
 .modal-band-overview {
@@ -85,28 +105,28 @@ a {
 }
 
 .modal-band-subtitle {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1.5;
-  color: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
 }
 
 .modal-band-text {
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 1.5;
-  color: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
 }
 
 .band-albums-title {
-  font-size: 24px;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  color: #fff;
+font-family: "Epilogue", sans-serif;
   font-weight: 700;
-  margin-bottom: 16px;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fff;
 }
 
 .band-albums-list {
@@ -189,8 +209,6 @@ a {
 
 @media screen and (min-width: 768px) {
   .backdrop {
-    width: 100%;
-    margin: 0 auto;
     max-width: 720px;
   }
 
@@ -208,7 +226,9 @@ a {
   }
 
   .band-thumbnail {
-    height: 432px;
+    border-radius: 16px;
+      width: 654px;
+      height: 402px;
   }
 
   .band-years,
@@ -239,8 +259,6 @@ a {
 
 @media screen and (min-width: 1440px) {
   .backdrop {
-    width: 100%;
-    margin: 0 auto;
     max-width: 1312px;
   }
 
@@ -258,7 +276,7 @@ a {
   }
 
   .band-thumbnail {
-    height: 393px;
+    max-width: 100%;
     margin-right: 32px;
   }
 
