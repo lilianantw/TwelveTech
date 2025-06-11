@@ -1,156 +1,99 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import Raty from 'raty-js';
+import 'css-star-rating/css/star-rating.css';
+import { fetchFeedbacks } from './api';
 
-let swiperInstance;
+const swiperWrapper = document.querySelector('.swiper-wrapper');
 
-async function fetchFeedbacks() {
-  const response = await fetch('https://sound-wave.b.goit.study/api/feedbacks');
-  if (!response.ok) {
-    throw new Error('Помилка завантаження');
-  }
-
-  const data = await response.json();
-  console.log('Отримані відгуки:', data);
-  return data.data;
-}
-
-function renderSlides(feedbacks) {
-  const wrapper = document.getElementById('feedback-list');
-  if (!wrapper) {
-    console.error('Элемент #feedback-list не найден');
-    return;
-  }
-  wrapper.innerHTML = '';
-
-  feedbacks.forEach(({ id, name, descr, rating }) => {
-    const slide = document.createElement('div');
-    slide.classList.add('swiper-slide');
-    slide.dataset.id = id;
-
-    slide.innerHTML = `
-        <div class="feedback-card">
-            <h4>${name}</h4>
-            <p>${descr}</p>
-            <div class="star-rating" data-rating="${
-              Math.round(rating) || 0
-            }"></div>
-        </div>`;
-
-    wrapper.appendChild(slide);
-  });
-}
-
-function initStarRatings() {
-  const starContainers = document.querySelectorAll('.star-rating');
-  console.log('Найдено star-rating элементов:', starContainers.length);
-  starContainers.forEach(container => {
-    const rating = parseInt(container.dataset.rating, 10) || 0;
-    console.log('Rating для элемента:', rating);
-    new Raty(container, {
-      readOnly: true,
-      score: rating,
-      starType: 'svg',
-      starSize: 20,
-      hints: [],
-      callbacks: {
-        initialized: () => {
-          console.log('Raty инициализирован для контейнера:', container);
-          console.log(
-            'SVG элементы:',
-            container.querySelectorAll('svg').length
-          );
-        },
-      },
+async function loadFeedbacks() {
+  try {
+    const response = await fetchFeedbacks(10, 1);
+    const feedbacks = response.data;
+    feedbacks.forEach(({ rating, descr, name }) => {
+      const slide = createFeedbackSlide({ rating, text: descr, user: name });
+      swiperWrapper.appendChild(slide);
     });
-  });
-}
-
-function updatePagination(activeIndex, slidesCount) {
-  const firstBtn = document.getElementById('pagination-first');
-  const middleBtn = document.getElementById('pagination-middle');
-  const lastBtn = document.getElementById('pagination-last');
-
-  if (!firstBtn || !middleBtn || !lastBtn) {
-    console.error('Один или несколько элементов пагинации не найдены');
-    return;
-  }
-
-  firstBtn.classList.remove('active');
-  middleBtn.classList.remove('active');
-  lastBtn.classList.remove('active');
-
-  if (activeIndex === 0) {
-    firstBtn.classList.add('active');
-  } else if (activeIndex === slidesCount - 1) {
-    lastBtn.classList.add('active');
-  } else {
-    middleBtn.classList.add('active');
+    initSwiper();
+  } catch (error) {
+    console.error('Oops...Error', error.message);
   }
 }
 
-function initSwiper(slidesCount) {
-  if (swiperInstance) {
-    swiperInstance.destroy(true, true);
-  }
+loadFeedbacks();
 
-  const swiperContainer = document.querySelector('.feedback-swiper');
-  if (!swiperContainer) {
-    console.error('Контейнер .feedback-swiper не найден');
-    return;
-  }
+function createFeedbackSlide({ rating, text, user }) {
+  const slide = document.createElement('div');
+  slide.classList.add('swiper-slide');
+  const roundedRating = Math.round(rating);
+  slide.innerHTML = `
+    <div class="feedback-card">
+      <div class="feedback-stars">${renderStars(roundedRating)}</div>
+      <p class="feedback-text">"${text}"</p>
+      <p class="feedback-user">${user}</p>
+    </div>
+  `;
+  return slide;
+}
 
-  swiperInstance = new Swiper('.feedback-swiper', {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    slidesPerView: 1,
-    spaceBetween: 20,
+function renderStars(count) {
+  const max = 5;
+  let starsHTML = '';
+  for (let i = 1; i <= max; i++) {
+    const starClass = i <= count ? 'star-filled': 'star-outline';
+    starsHTML += `
+     <svg class="star-icon ${starClass}" width="24" height="24">
+        <use href="img/symbol-defs.svg#${i <= count ? 'icon-star-filled' : 'icon-star-outline'}"></use>
+      </svg>
+    `;
+  }
+  return starsHTML;
+}
+
+function initSwiper() {
+  const swiper = new Swiper('.feedback-swiper', {
     loop: false,
-    on: {
-      init: function () {
-        console.log('Swiper инициализирован, activeIndex:', this.activeIndex);
-        initStarRatings();
-        updatePagination(this.activeIndex, slidesCount);
-      },
-      slideChange: function () {
-        console.log('Слайд изменён, activeIndex:', this.activeIndex);
-        initStarRatings();
-        updatePagination(this.activeIndex, slidesCount);
+    navigation: {
+      nextEl: '.feedback-button-next',
+      prevEl: '.feedback-button-prev',
+    },
+    pagination: {
+      el: '.feedback-pagination',
+      clickable: true,
+      type: 'custom',
+      renderCustom: function (swiper, current, total) {
+        const firstSlideIndex = 0;
+        const lastSlideIndex = total - 1;
+
+        let leftBulletActive = '';
+        let middleBulletActive = '';
+        let rightBulletActive = '';
+
+        if (current - 1 === firstSlideIndex) {
+          leftBulletActive = 'swiper-pagination-bullet-active';
+        } else if (current - 1 === lastSlideIndex) {
+          rightBulletActive = 'swiper-pagination-bullet-active';
+        } else {
+          middleBulletActive = 'swiper-pagination-bullet-active';
+        }
+
+        return `
+          <span class="swiper-pagination-bullet ${leftBulletActive}" data-slide-index="${firstSlideIndex}"></span>
+          <span class="swiper-pagination-bullet ${middleBulletActive}" data-slide-index="${Math.floor(total / 2)}"></span>
+          <span class="swiper-pagination-bullet ${rightBulletActive}" data-slide-index="${lastSlideIndex}"></span>
+        `;
       },
     },
+    on: {
+      paginationUpdate: function () {
+        const bullets = document.querySelectorAll('.feedback-pagination .swiper-pagination-bullet');
+        bullets.forEach(bullet => {
+          bullet.onclick = () => {
+            const index = parseInt(bullet.getAttribute('data-slide-index'));
+            swiper.slideTo(index + 1);
+          };
+        });
+      },
+    },
+    grabCursor: true,
   });
-
-  const firstBtn = document.getElementById('pagination-first');
-  const middleBtn = document.getElementById('pagination-middle');
-  const lastBtn = document.getElementById('pagination-last');
-  if (!firstBtn || !middleBtn || !lastBtn) {
-    console.error('Один или несколько элементов пагинации не найдены');
-    return;
-  }
-
-  firstBtn.onclick = () => {
-    console.log('Переход к первому слайду');
-    swiperInstance.slideTo(0);
-  };
-  middleBtn.onclick = () => {
-    if (slidesCount > 2) {
-      console.log('Переход к среднему слайду');
-      swiperInstance.slideTo(1);
-    }
-  };
-  lastBtn.onclick = () => {
-    console.log('Переход к последнему слайду');
-    swiperInstance.slideTo(slidesCount - 1);
-  };
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  fetchFeedbacks()
-    .then(feedbacks => {
-      renderSlides(feedbacks);
-      initSwiper(feedbacks.length);
-    })
-    .catch(err => console.error(err));
-});

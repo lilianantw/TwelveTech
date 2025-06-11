@@ -14,6 +14,7 @@
   transform: translate(-50%) scale(1);
   display: flex;
   align-items: center;
+  padding: 6.5px 12px 6.5px 20px;
   justify-content: space-between;
   background-color: transparent;
 }
@@ -23,8 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6.5px 4px 6.5px 10px;
-  text-align: center;
+
 }
 
 .header-nav-list {
@@ -34,17 +34,21 @@
 .icon-logo {
   padding: 10px 6px 10px 6px;
   width: 119px;
+  align-self: center;
   height: 52px;
   fill: #764191;
+}
+
+.icon-logo:hover,
+.icon-logo:focus {
+  fill: #55236e;
+  transition: fill 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .burger-btn {
   width: 48px;
   height: 48px;
   padding: 0;
-  margin-top: 8px;
-  margin-right: 24px;
-  margin-bottom: 8px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -75,7 +79,12 @@
   }
 
   .header-nav {
-    padding-left: 0;
+    width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 640px;
+      margin: 0 auto;
   }
 
   .icon-logo {
@@ -96,17 +105,21 @@
   }
 
   .header-nav-link {
+    font-weight: 400;
+      font-size: 18px;
+      line-height: 1.5;
+      letter-spacing: 0;
     text-align: center;
     transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .header-nav-link:hover,
   .header-nav-link:focus {
-    color: #764191;
+    color: #55236e;
   }
 
   .header-nav-link:active {
-    color: #ffffff;
+    color: #fff;
   }
 }
 
@@ -115,6 +128,9 @@
     width: 1440px;
     background-color: transparent;
   }
+    .header-nav {
+      max-width: 1312px;
+    }
 }
 
 

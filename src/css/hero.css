@@ -1,1 +1,415 @@
-/* hero.css: Стили для блока Hero. Заполняется ответственным разработчиком. */
+/* ----------MOBILE VERSION---------- */
+.hero-section {
+  width: 100%;
+  background-color: #23132b;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-section::before,
+.hero-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-section::before {
+  top: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(6, 3, 7, 1), rgba(6, 3, 7, 0));
+}
+
+.hero-section::after {
+  bottom: 0;
+  height: 106px;
+  background: linear-gradient(to top, rgba(6, 3, 7, 1), rgba(6, 3, 7, 0));
+}
+
+.hero-container {
+  padding: 64px 16px 0px;
+}
+
+.main-inner {
+  margin: 0 auto;
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+
+.main-title {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  padding-top: 64px;
+}
+
+.main-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.main-button {
+  cursor: pointer;
+  width: 280px;
+  height: 47px;
+  background-color: #764191;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+}
+
+.main-button:hover,
+.main-button:focus {
+  background-color: #55236e;
+  transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-btn-text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #ffffff;
+  margin-right: 17px;
+}
+
+.main-btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-btn-svg {
+  fill: #fff;
+}
+
+.main-wraper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.main-box {
+  width: calc((100% - 16px) / 2);
+}
+
+.main-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.main-item {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+}
+
+.main-img1 {
+  min-height: 92px;
+  background-image: url('../img/hero/mobile/artist-left1.jpg');
+  background-position: right;
+  border-bottom-right-radius: 16px;
+}
+
+.main-img2 {
+  min-height: 170px;
+  background-image: url('../img/hero/mobile/artist-left2.jpg');
+  background-position: right;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.main-img3 {
+  min-height: 92px;
+  background-image: url('../img/hero/mobile/artist-left3.jpg');
+  background-position: right;
+  border-top-right-radius: 16px;
+}
+
+.main-img4 {
+  min-height: 170px;
+  background-image: url('../img/hero/mobile/artist-right1.jpg');
+  background-position: left;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.main-img5 {
+  min-height: 170px;
+  background-image: url('../img/hero/mobile/artist-right2.jpg');
+  background-position: left;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.main-img6 {
+  min-height: 14px;
+  background-image: url('../img/hero/mobile/artist-right3.jpg');
+  background-position: left;
+  border-top-left-radius: 16px;
+}
+
+@media (min-resolution: 2x) {
+  .main-img1 {
+    background-image: url('../img/hero/mobile/artist-left1@2x.jpg');
+  }
+
+  .main-img2 {
+    background-image: url('../img/hero/mobile/artist-left2@2x.jpg');
+  }
+
+  .main-img3 {
+    background-image: url('../img/hero/mobile/artist-left3@2x.jpg');
+  }
+
+  .main-img4 {
+    background-image: url('../img/hero/mobile/artist-right1@2x.jpg');
+  }
+
+  .main-img5 {
+    background-image: url('../img/hero/mobile/artist-right2@2x.jpg');
+  }
+
+  .main-img6 {
+    background-image: url('../img/hero/mobile/artist-right3@2x.jpg');
+  }
+}
+
+/* ----------TABLET VERSION---------- */
+
+@media screen and (min-width: 768px) {
+  .hero-section::before {
+    height: 125px;
+  }
+
+  .hero-section::after {
+    height: 137px;
+  }
+
+  .hero-container {
+    padding: 32px 32px 0;
+  }
+
+  .main-inner {
+    max-width: 704px;
+    margin-bottom: 32px;
+  }
+
+  .main-title {
+    max-width: 624px;
+    margin-bottom: 24px;
+  }
+
+  .main-text {
+    font-size: 20px;
+  }
+
+  .main-button {
+    width: 246px;
+    margin-left: 0;
+  }
+
+  .main-wraper {
+    gap: 18px;
+  }
+
+  .main-box {
+    width: calc((100% - 18px) / 2);
+  }
+
+  .main-img1 {
+    min-height: 188px;
+    background-image: url('../img/hero/tablet/artist-left1.jpg');
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  .main-img2 {
+    min-height: 340px;
+    background-image: url('../img/hero/tablet/artist-left2.jpg');
+    border-radius: 16px;
+  }
+
+  .main-img3 {
+    min-height: 72px;
+    background-image: url('../img/hero/tablet/artist-left3.jpg');
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+  }
+
+  .main-img4 {
+    min-height: 340px;
+    background-image: url('../img/hero/tablet/artist-right1.jpg');
+    border-radius: 16px;
+  }
+
+  .main-img5 {
+    min-height: 275px;
+    background-image: url('../img/hero/tablet/artist-right2.jpg');
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+  }
+
+  .main-img6 {
+    min-height: 0;
+    background-image: url('../img/hero/tablet/artist-right3.jpg');
+  }
+
+  @media (min-resolution: 2x) {
+    .main-img1 {
+      background-image: url('../img/hero/tablet/artist-left1@2x.jpg');
+    }
+
+    .main-img2 {
+      background-image: url('../img/hero/tablet/artist-left2@2x.jpg');
+    }
+
+    .main-img3 {
+      background-image: url('../img/hero/tablet/artist-left3@2x.jpg');
+    }
+
+    .main-img4 {
+      background-image: url('../img/hero/tablet/artist-right1@2x.jpg');
+    }
+
+    .main-img5 {
+      background-image: url('../img/hero/tablet/artist-right2@2x.jpg');
+    }
+
+    .main-img6 {
+      background-image: url('../img/hero/tablet/artist-right3@2x.jpg');
+    }
+  }
+}
+
+/* ----------DESCTOP VERSION---------- */
+@media screen and (min-width: 1440px) {
+  .hero-section {
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 64px;
+  }
+
+  .main-inner {
+    max-width: 640px;
+    margin-right: 31px;
+  }
+
+  .main-title {
+    max-width: 100%;
+    font-size: 84px;
+    margin-bottom: 24px;
+  }
+
+  .main-text {
+    margin-bottom: 32px;
+  }
+
+  .main-button {
+    width: 206px;
+  }
+
+  .main-wraper {
+    gap: 17px;
+  }
+
+  .main-box {
+    width: calc((100% - 17px) / 2);
+  }
+
+  .main-item {
+    border: 16px;
+  }
+
+  .main-img1 {
+    min-height: 188px;
+    background-image: url('../img/hero/desctop/artist-left1.jpg');
+    border: 16px;
+  }
+
+  .main-img2 {
+    min-height: 340px;
+    background-image: url('../img/hero/desctop/artist-left2.jpg');
+    border: 16px;
+  }
+
+  .main-img3 {
+    min-height: 340px;
+    background-image: url('../img/hero/desctop/artist-left3.jpg');
+    border: 16px;
+  }
+
+  .main-img4 {
+    min-height: 340px;
+    background-image: url('../img/hero/desctop/artist-right1.jpg');
+    border: 16px;
+  }
+
+  .main-img5 {
+    min-height: 340px;
+    background-image: url('../img/hero/desctop/artist-right2.jpg');
+    border: 16px;
+  }
+
+  .main-img6 {
+    min-height: 188px;
+    background-image: url('../img/hero/desctop/artist-right3.jpg');
+    border: 16px;
+  }
+
+  @media (min-resolution: 2x) {
+    .main-img1 {
+      background-image: url('../img/hero/desctop/artist-left1@2x.jpg');
+    }
+
+    .main-img2 {
+      background-image: url('../img/hero/desctop/artist-left2@2x.jpg');
+    }
+
+    .main-img3 {
+      background-image: url('../img/hero/desctop/artist-left3@2x.jpg');
+    }
+
+    .main-img4 {
+      background-image: url('../img/hero/desctop/artist-right1@2x.jpg');
+    }
+
+    .main-img5 {
+      background-image: url('../img/hero/desctop/artist-right2@2x.jpg');
+    }
+
+    .main-img6 {
+      background-image: url('../img/hero/desctop/artist-right3@2x.jpg');
+    }
+  }
+}
