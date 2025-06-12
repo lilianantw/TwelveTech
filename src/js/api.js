@@ -5,7 +5,7 @@ export const LIMIT = 8;
 
 axios.defaults.baseURL = API_BASE_URL;
 
-export async function fetchArtists(page = 1, limit = LIMIT) {
+export async function fetchArtists(page = 1, limit = 10) {
   try {
     const response = await axios.get('/artists', {
       params: { page, limit },
