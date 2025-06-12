@@ -3,7 +3,7 @@ import 'swiper/css/bundle';
 import 'css-star-rating/css/star-rating.css';
 import { fetchFeedbacks } from './api';
 
-let swiper; // глобально, чтобы использовать в других функциях
+let swiper; 
 
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 const paginationContainer = document.querySelector('.feedback-pagination');
@@ -18,7 +18,6 @@ async function loadFeedbacks() {
       swiperWrapper.appendChild(slide);
     });
 
-    // Инициализируем Swiper только после отрисовки DOM
     initSwiper();
   } catch (error) {
     console.error('Oops...Error', error.message);
@@ -68,8 +67,8 @@ function initSwiper() {
     },
   });
 
-  renderCustomPagination(); // первая отрисовка точек
-  setupPaginationClicks();  // клики по точкам
+  renderCustomPagination(); 
+  setupPaginationClicks();  
 }
 
 function renderCustomPagination() {
