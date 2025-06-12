@@ -10,6 +10,15 @@ background-color: #060307;
 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
+body {
+  padding-top: 64px;
+  min-height: 100vh;
+}
 
 .header-container {
   position: absolute;
