@@ -8,7 +8,7 @@ a {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.25);
-  z-index: 999;
+  z-index: 1010;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -22,6 +22,7 @@ a {
 
 .backdrop ::-webkit-scrollbar {
   background-color: transparent;
+  scrollbar-width: thin;
 }
 
 .is-open {
@@ -34,9 +35,10 @@ a {
   position: relative;
   background-color: #060307;
   border-radius: 8px;
-  max-width: 2560px;
-  width: 95%;
-  padding: 52px 8px;
+  max-width: 288px;
+  padding-bottom: 52px;
+  padding-top: 52px;
+  padding-left: 8px;
   max-height: 90vh;
   overflow-y: auto;
   box-sizing: border-box;
@@ -86,6 +88,32 @@ a {
   margin-bottom: 16px;
 }
 
+.scrollable-biography {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #343335 #1e1c1f;
+}
+
+.scrollable-biography::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-biography::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.scrollable-biography::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.scrollable-biography::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .modal-band-subtitle {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 18px;
@@ -128,7 +156,7 @@ a {
 }
 
 .album-item {
-  width: 272px;
+  width: 100%;
   padding: 14px 11px;
   background-color: #1E1C1F;
   border-radius: 16px;
@@ -150,7 +178,7 @@ a {
   font-weight: 600;
   line-height: 1.5;
   font-size: 8px;
-  padding: 4px 4px 4px 12px;
+  padding: 4px 4px 4px 4px;
   background-color: #343335;
   border-radius: 8px;
 }
@@ -183,7 +211,7 @@ a {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 8px;
-  padding: 8px 8px 8px 12px;
+  padding: 8px 8px 8px 4px;
 }
 
 .track-item:nth-child(2n + 1) {
@@ -197,7 +225,11 @@ a {
 @media screen and (min-width: 768px) {
 
   .modal-artist {
-    padding: 64px 24px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 24px;
+    padding-right: 12px;
+    max-width: 702px;
   }
 
   .band-title {
@@ -235,15 +267,22 @@ a {
   .band-albums-list {
     flex-direction: row;
   }
+
+  .album-item {
+    width: calc((100% - 32px) / 2);
+    box-sizing: border-box;
+  }
 }
 
 @media screen and (min-width: 1440px) {
 
 .modal-artist {
-    padding: 64px 64px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 64px;
+    padding-right: 52px;
+    max-width: 1324px;
   }
-
-
 
   .wrapper {
     display: flex;
@@ -261,5 +300,9 @@ a {
 
   .modal-band-history {
     margin-bottom: 24px;
+  }
+
+  .album-item {
+    width: calc((100% - 96px) / 4);
   }
 }
