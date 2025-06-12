@@ -85,9 +85,7 @@ body {
   gap: 24px;
   border-radius: 16px;
 }
-/* .artist-card:not(:last-child) {
-  margin-bottom: 32px;
-} */
+
 
 .artist-photo {
   object-fit: cover;
@@ -136,14 +134,13 @@ body {
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
-  display: -webkit-box;
+display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  line-clamp: 2;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* 6. Кнопки */
 .load-more-btn {
   border-radius: 12px;
   padding: 10px 24px;
