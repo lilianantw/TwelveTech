@@ -89,7 +89,7 @@ a {
 }
 
 .scrollable-biography {
-  max-height: 200px;
+  max-height: 297px;
   overflow-y: auto;
   padding-right: 8px;
   scrollbar-width: thin;
@@ -232,6 +232,9 @@ a {
     max-width: 702px;
   }
 
+  .scrollable-biography {
+  max-height: 108px;}
+
   .band-title {
     margin-bottom: 48px;
   }
@@ -287,6 +290,9 @@ a {
   .wrapper {
     display: flex;
   }
+
+    .scrollable-biography {
+  max-height: 135px;}
 
   .band-thumbnail {
     height: 393px;
