@@ -118,7 +118,7 @@ function generateArtistMarkup(data) {
       <div class="band-biography modal-band-history">
         <ul class="modal-band-element">
           <li class="modal-band-subtitle">Biography</li>
-          <li class="modal-band-text">${biography}</li>
+          <li class="modal-band-text scrollable-biography">${biography}</li>
         </ul>
       </div>
     
