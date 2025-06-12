@@ -1,4 +1,4 @@
-import './js/libraries.js';
+import 'normalize.css';
 import './js/hero.js';
 import './js/artists.js';
 import './js/about.js';
