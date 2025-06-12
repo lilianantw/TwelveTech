@@ -108,6 +108,7 @@ a {
   flex-wrap: wrap;
   gap: 16px;
   overflow: hidden;
+  margin-bottom: 16px;
 }
 
 .band-albums-title {
@@ -202,6 +203,9 @@ a {
   .band-title {
     margin-bottom: 48px;
   }
+   .band-genres-list {
+      margin-bottom: 48px;
+    }
 
   .band-thumbnail {
     height: 432px;
