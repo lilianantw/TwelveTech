@@ -4,6 +4,8 @@
   background-color: #23132b;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
+    z-index: 0;
   padding-top: 64px;
 }
 
@@ -14,7 +16,7 @@
   left: 0;
   width: 100%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
 }
 
 .hero-section::before {
@@ -97,7 +99,7 @@
   width: 100%;
   height: 385px;
   background-image: url('../img/hero/hero-mobile.png');
-  background-size: contain;
+  background-size: cover;
   margin-top: 64px;
   background-position: center;
   background-repeat: no-repeat;
@@ -150,6 +152,9 @@
     background-image: url('../img/hero/hero-table@2x.png');
   }
 }
+ .hero-section {
+   padding: 32px 0;
+ }
 }
 
 /* ----------DESCTOP VERSION---------- */
