@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const API_BASE_URL = 'https://sound-wave.b.goit.study/api';
 export const LIMIT = 8;
 
@@ -10,7 +11,6 @@ export async function fetchArtists(page = 1, limit = 8) {
       params: { page, limit },
     });
     return response.data;
-    // console.log('Fetch returned:', response.data);
   } catch (error) {
     console.error(
       'Failed to fetch artists:',
