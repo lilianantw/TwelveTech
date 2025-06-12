@@ -5,21 +5,24 @@ a {
 
 .backdrop {
   position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    box-sizing: border-box;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1010;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop ::-webkit-scrollbar {
+  background-color: transparent;
+  scrollbar-width: thin;
 }
 
 .is-open {
@@ -29,18 +32,16 @@ a {
 }
 
 .modal-artist {
-  background-color: rgba(6, 3, 7, 1);
-    padding: 64px;
-    border-radius: 8px;
-    max-width: 1184px;
-    width: 95%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    box-sizing: border-box;
-    padding-top: 60px;
-
+  position: relative;
+  background-color: #060307;
+  border-radius: 8px;
+  max-width: 288px;
+  padding-bottom: 52px;
+  padding-top: 52px;
+  padding-left: 8px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .no-scroll {
@@ -49,20 +50,12 @@ a {
 }
 
 .modal-close-btn {
-position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
+  position: absolute;
+  top: 32px;
+  right: 16px;
+  background-color: inherit;
   border: none;
-  color: #333;
-  cursor: pointer;
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1002;
 }
-
 
 .modal-close-svg {
   fill: #fff;
@@ -70,23 +63,10 @@ position: absolute;
 
 .modal-content,
 .modal-albums-content {
-  padding: 52px 8px;
-  height: auto;
   font-family: 'Epilogue', sans-serif;
-  max-width: 100%;
-}
-
-.modal-content{
-width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-
 }
 
 .band-title {
-font-family: "Epilogue", sans-serif;
-  font-weight: 700;
   font-size: 20px;
   text-align: center;
   font-weight: 700;
@@ -97,36 +77,75 @@ font-family: "Epilogue", sans-serif;
 
 .band-thumbnail {
   display: block;
-  border-radius: 16px;
+  width: 100%;
+  height: 177px;
+  margin-bottom: 32px;
+  object-fit: cover;
+  object-position: center 15%;
 }
 
 .modal-band-overview {
   margin-bottom: 16px;
 }
 
+.scrollable-biography {
+  max-height: 297px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #343335 #1e1c1f;
+}
+
+.scrollable-biography::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-biography::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.scrollable-biography::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.scrollable-biography::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .modal-band-subtitle {
   font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
 }
 
 .modal-band-text {
+  font-size: 18px;
   font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #fff;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.band-genres-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
 }
 
 .band-albums-title {
-font-family: "Epilogue", sans-serif;
-  font-weight: 700;
   font-size: 24px;
   line-height: 1.3;
-  letter-spacing: -0.01em;
   color: #fff;
+  font-weight: 700;
+  font-family: "Epilogue", sans-serif;
+  margin-bottom: 16px;
 }
 
 .band-albums-list {
@@ -137,10 +156,9 @@ font-family: "Epilogue", sans-serif;
 }
 
 .album-item {
-  width: 272px;
+  width: 100%;
   padding: 14px 11px;
-  margin: 0 auto;
-  background-color: #1e1c1f;
+  background-color: #1E1C1F;
   border-radius: 16px;
 }
 
@@ -149,21 +167,18 @@ font-family: "Epilogue", sans-serif;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   line-height: 1.5;
-  letter-spacing: 0.01em;
   font-size: 16px;
-  padding-left: 8px;
 }
 
 .track-info {
   display: flex;
-  color: #fff;
+  color: #FFF;
   height: 20px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   line-height: 1.5;
-  letter-spacing: 0.01em;
   font-size: 8px;
-  padding: 4px 4px 4px 12px;
+  padding: 4px 4px 4px 4px;
   background-color: #343335;
   border-radius: 8px;
 }
@@ -181,6 +196,7 @@ font-family: "Epilogue", sans-serif;
   align-items: center;
 }
 
+
 .track-link {
   width: 35px;
   display: flex;
@@ -193,10 +209,9 @@ font-family: "Epilogue", sans-serif;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
   font-size: 12px;
-  letter-spacing: 0.01em;
   line-height: 1.5;
   border-radius: 8px;
-  padding: 8px 8px 8px 12px;
+  padding: 8px 8px 8px 4px;
 }
 
 .track-item:nth-child(2n + 1) {
@@ -204,31 +219,31 @@ font-family: "Epilogue", sans-serif;
 }
 
 .modal-youtube-icon {
-  fill: #fff;
+  fill: #FFF;
 }
 
 @media screen and (min-width: 768px) {
-  .backdrop {
-    max-width: 720px;
+
+  .modal-artist {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 24px;
+    padding-right: 12px;
+    max-width: 702px;
   }
 
-  .modal-content,
-  .modal-albums-content {
-    padding: 64px 24px;
-  }
-
-  .modal-close-btn {
-    right: 48px;
-  }
+  .scrollable-biography {
+  max-height: 108px;}
 
   .band-title {
     margin-bottom: 48px;
   }
+   .band-genres-list {
+      margin-bottom: 48px;
+    }
 
   .band-thumbnail {
-    border-radius: 16px;
-      width: 654px;
-      height: 402px;
+    height: 432px;
   }
 
   .band-years,
@@ -255,28 +270,32 @@ font-family: "Epilogue", sans-serif;
   .band-albums-list {
     flex-direction: row;
   }
+
+  .album-item {
+    width: calc((100% - 32px) / 2);
+    box-sizing: border-box;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-  .backdrop {
-    max-width: 1312px;
-  }
 
-  .modal-content,
-  .modal-albums-content {
-    padding: 64px 64px;
-  }
-
-  .modal-close-btn {
-    right: 16px;
+.modal-artist {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 64px;
+    padding-right: 52px;
+    max-width: 1324px;
   }
 
   .wrapper {
     display: flex;
   }
 
+    .scrollable-biography {
+  max-height: 135px;}
+
   .band-thumbnail {
-    max-width: 100%;
+    height: 393px;
     margin-right: 32px;
   }
 
@@ -287,5 +306,9 @@ font-family: "Epilogue", sans-serif;
 
   .modal-band-history {
     margin-bottom: 24px;
+  }
+
+  .album-item {
+    width: calc((100% - 96px) / 4);
   }
 }

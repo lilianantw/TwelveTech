@@ -37,7 +37,8 @@ async function initArtists() {
 }
 
 // ===== ОПРАЦЮВАННЯ КЛІКУ "ЗАВАНТАЖИТИ ЩЕ" =====
-async function onLoadMoreBtnClick() {
+async function onLoadMoreBtnClick(event) {
+  event.target.blur();
   currentPage++;
   showLoader();
 
@@ -54,7 +55,7 @@ async function onLoadMoreBtnClick() {
     if (currentPage >= totalPages) {
       iziToast.info({
         title: '',
-        message: "Ви, передивились всіх артистів.",
+        message: 'Ви, передивились всіх артистів.',
         position: 'topRight',
         timeout: 4000,
         titleColor: '#fff',
@@ -79,10 +80,9 @@ function onArtistCardClick(event) {
   const artistId = learnMoreBtn.dataset.artistId;
   if (!artistId) return;
 
-  openArtistModal(artistId); // ← сюда подключить модалку, если будет нужно
+  openArtistModal(artistId);
 }
 
 document.addEventListener('DOMContentLoaded', initArtists);
 refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 refs.cardsContainer.addEventListener('click', onArtistCardClick);
-

@@ -4,12 +4,12 @@
 .about-us-container {
   width: 100%;
   margin: 0 auto;
-  padding: 64px 16px; /* вертикальные паддинги для мобилок + горизонтальные */
   max-width: 288px; /* по умолчанию мобильная ширина */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
+
 
 /* 1. Мобильная версия (от 320px) */
 @media only screen and (min-width: 320px) {
@@ -18,10 +18,13 @@
     display: flex;
     flex-direction: column;
   }
+    .about-us-section {
+  padding: 64px 0px;}
+  
   .about-img-container {
     width: 280px;
     height: 168px;
-    margin: 48px auto 24px; /* центрирование картинки + отступ сверху/снизу */
+    margin: 48px auto 20px; /* центрирование картинки + отступ сверху/снизу */
     box-sizing: border-box;
   }
   .about-title {
@@ -38,6 +41,7 @@
     line-height: 1.5;
     color: #fff;
   }
+  
   .logo-icon {
     display: block;
     margin-bottom: 48px;
@@ -50,18 +54,17 @@
 /* 2. Планшет (от 768px) */
 @media only screen and (min-width: 768px) {
   .about-us-container {
-    max-width: 704px; /* расширяем контейнер для планшета */
-    padding: 64px 0; /* убираем горизонтальные паддинги, блок центрируется контейнером страницы */
+    max-width: 704px; 
   }
   .about-img-container {
     width: 100%;
     max-width: 704px;
     height: 413px;
-    margin: 48px auto 48px;
+    margin: 24px auto 24px;
     border-radius: 16px;
   }
   .logo-icon {
-    margin-bottom: 48px;
+    margin-bottom: 24px;
     width: 80px;
     height: 80px;
   }
@@ -73,7 +76,6 @@
     max-width: 1312px; /* ширина контейнера для десктопа */
     flex-direction: row; /* текст + картинка в строку */
     gap: 32px;
-    padding: 112px 0;
     background: #060307;
   }
   .about-text-container {
@@ -90,13 +92,16 @@
     border-radius: 16px;
   }
   .logo-icon {
-    margin-bottom: 48px;
+    margin-bottom: 24px;
     width: 80px;
     height: 80px;
   }
+
+.about-us-section {
+  padding: 112px 0;
+}
 }
 
-/* Общие стили для картинок */
 img {
   border-radius: 16px;
 }

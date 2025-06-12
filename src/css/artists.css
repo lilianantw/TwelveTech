@@ -13,11 +13,13 @@
   margin: 0 auto;
   padding: 0 16px; /* Горизонтальные паддинги для выравнивания содержимого */
 }
+.artists-section {
+  padding: 64px 0;
+}
 
 /* 1. Заголовки */
 .title-art {
   text-align: left;
-  padding-top: 64px;
   margin-bottom: 16px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
@@ -83,9 +85,7 @@ body {
   gap: 24px;
   border-radius: 16px;
 }
-/* .artist-card:not(:last-child) {
-  margin-bottom: 32px;
-} */
+
 
 .artist-photo {
   object-fit: cover;
@@ -134,13 +134,13 @@ body {
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
-  display: -webkit-box;
+display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* 6. Кнопки */
 .load-more-btn {
   border-radius: 12px;
   padding: 10px 24px;
@@ -257,12 +257,13 @@ body {
     max-width: 1312px;
   }
 
- .title-art {
-    margin-top: 112px;
+  .artists-section {
+    padding: 112px 0;
   }
 
   .section-title {
     font-size: 60px;
+  font-family: "Epilogue", sans-serif;
     width: 100%;
     max-width: 523px;
     margin-bottom: 80px;
