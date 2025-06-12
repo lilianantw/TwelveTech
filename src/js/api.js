@@ -9,7 +9,7 @@ export async function fetchArtists(page = 1, limit = 8) {
     const response = await axios.get('/artists', {
       params: { page, limit },
     });
-    
+    // console.log('Fetch returned:', response.data);
     return response.data;
   } catch (error) {
     console.error(
@@ -56,6 +56,7 @@ export async function checkApiStatus() {
     const response = await axios.get('/feedbacks', {
       params: { limit: 1, page: 1 },
     });
+    // console.log('API status: OK, response:', response.status);
     return { status: 'online', message: 'API is accessible' };
   } catch (error) {
     console.error(
