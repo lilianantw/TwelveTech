@@ -1,0 +1,33 @@
+/* Сброс базовых стилей */
+p:last-child {
+  margin-bottom: 0; /* Сбрасываем нижний отступ для последнего параграфа, если требуется */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}

@@ -6,8 +6,6 @@ import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
-    // 💡 Обязательно укажи base, если деплоишь в GitHub Pages
-    base: '/TwelveTech/',
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },

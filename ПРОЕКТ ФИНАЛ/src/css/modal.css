@@ -1,0 +1,260 @@
+a {
+  margin: 0;
+  padding: 0;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop ::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.modal-artist {
+  position: relative;
+  background-color: #060307;
+  border-radius: 8px;
+  max-width: 2560px;
+  width: 95%;
+  padding: 52px 8px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.no-scroll {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 32px;
+  right: 16px;
+  background-color: inherit;
+  border: none;
+}
+
+.modal-close-svg {
+  fill: #fff;
+}
+
+.modal-content,
+.modal-albums-content {
+  font-family: 'Epilogue', sans-serif;
+}
+
+.band-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.band-thumbnail {
+  display: block;
+  width: 100%;
+  height: 177px;
+  margin-bottom: 32px;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+.modal-band-overview {
+  margin-bottom: 16px;
+}
+
+.modal-band-subtitle {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.modal-band-text {
+  font-size: 18px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.band-genres-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.band-albums-title {
+  font-size: 24px;
+  line-height: 1.3;
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Epilogue', sans-serif;
+  margin-bottom: 16px;
+}
+
+.band-albums-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.album-item {
+  width: 272px;
+  padding: 14px 11px;
+  background-color: #1e1c1f;
+  border-radius: 16px;
+}
+
+.album-name {
+  margin-bottom: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.track-info {
+  display: flex;
+  color: #fff;
+  height: 20px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 8px;
+  padding: 4px 4px 4px 12px;
+  background-color: #343335;
+  border-radius: 8px;
+}
+
+.track-name {
+  width: 97px;
+  display: flex;
+  align-items: center;
+}
+
+.track-duration {
+  width: 102px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-link {
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-item {
+  display: flex;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 8px;
+  padding: 8px 8px 8px 12px;
+}
+
+.track-item:nth-child(2n + 1) {
+  background-color: #343335;
+}
+
+.modal-youtube-icon {
+  fill: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-artist {
+    padding: 64px 24px;
+  }
+
+  .band-title {
+    margin-bottom: 48px;
+  }
+  .band-genres-list {
+    margin-bottom: 48px;
+  }
+
+  .band-thumbnail {
+    height: 432px;
+  }
+
+  .band-years,
+  .band-sex,
+  .band-members,
+  .band-country {
+    display: inline-block;
+  }
+
+  .band-years,
+  .band-members {
+    width: 146px;
+  }
+
+  .band-sex,
+  .band-country {
+    margin-left: 24px;
+  }
+
+  .modal-band-overview {
+    margin-bottom: 24px;
+  }
+
+  .band-albums-list {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modal-artist {
+    padding: 64px 64px;
+  }
+
+  .wrapper {
+    display: flex;
+  }
+
+  .band-thumbnail {
+    height: 393px;
+    margin-right: 32px;
+  }
+
+  .band-sex,
+  .band-country {
+    margin-left: 24px;
+  }
+
+  .modal-band-history {
+    margin-bottom: 24px;
+  }
+}
