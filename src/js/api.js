@@ -56,6 +56,7 @@ export async function checkApiStatus() {
     const response = await axios.get('/feedbacks', {
       params: { limit: 1, page: 1 },
     });
+
     // console.log('API status: OK, response:', response.status);
     return { status: 'online', message: 'API is accessible' };
   } catch (error) {
