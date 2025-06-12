@@ -46,7 +46,7 @@ import{a as m,i as $,S}from"./assets/vendor-rzQNFhEO.js";(function(){const e=doc
       <div class="band-biography modal-band-history">
         <ul class="modal-band-element">
           <li class="modal-band-subtitle">Biography</li>
-          <li class="modal-band-text">${o}</li>
+          <li class="modal-band-text scrollable-biography">${o}</li>
         </ul>
       </div>
     
